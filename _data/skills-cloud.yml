@@ -1,0 +1,20 @@
+- name: AWS
+  weight: 4
+
+- name: GCP
+  weight: 3
+
+- name: Snowflake
+  weight: 4
+
+- name: BigQuery
+  weight: 3
+
+- name: Databricks
+  weight: 3
+
+- name: dbt
+  weight: 4
+
+- name: Hive
+  weight: 3

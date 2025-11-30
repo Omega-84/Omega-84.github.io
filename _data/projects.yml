@@ -1,33 +1,53 @@
-# > name: Name of your project
-# > descr: Description of your project
-# > demo: Link to your project
-# > tags: List of technologies you used in your projects
-#
-# Example of a project
-# - name: project X
-#   descr: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam"
-#   demo: https://example.com/
-#   tags:
-#     - tag: MongoDB
-#     - tag: Express
-#     - tag: AngularJS
-#     - tag: Node
-
-- name: project X
-  descr: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam"
-  demo: https://example.com/
-  tags:
-    - tag: MongoDB
-    - tag: Express
-    - tag: AngularJS
-    - tag: Node
-
-- name: project Y
-  descr: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam"
-  demo: https://example.com/
+- name: Insurance Cross-Sell Prediction System
+  descr: "Created a machine learning model using LightGBM to identify high-potential customers, improving product sales by 18%. Built classification model achieving 85% AUC score on dataset of 380K customers. Conducted feature engineering on demographic and policy-related variables."
+  github: https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling
   tags:
     - tag: Python
-    - tag: Django
+    - tag: LightGBM
+    - tag: Scikit-learn
+    - tag: Pandas
 
-- name: project Z
-  descr: "You can also set a project without demo link and no tags"
+- name: ETL Pipeline Orchestration
+  descr: "Developed a scalable ETL pipeline which scrapes data using Selenium and processes it using Pandas, storing on AWS S3. Automated the entire process using Apache Airflow hosted on AWS EC2. Designed data ingestion workflow with scheduled DAGs for daily data freshness."
+  github: https://github.com/Omega-84/airflow_data_engg_project
+  tags:
+    - tag: Python
+    - tag: AWS S3
+    - tag: AWS EC2
+    - tag: Apache Airflow
+    - tag: Selenium
+
+- name: Warehouse Network Supply Chain Optimization
+  descr: "Developed a logistic optimization model in Python using PuLP library to reduce shipping costs by 25% for a 3-warehouse network. Created an interactive UI using Streamlit with data connectors, visualizations, and reports. Built what-if scenario analysis tool for business users."
+  github: https://github.com/Omega-84/Supply-Chain-Optimization
+  tags:
+    - tag: Python
+    - tag: PuLP
+    - tag: Streamlit
+    - tag: Optimization
+
+- name: Resume Tailoring Automation System
+  descr: "Built an automated resume tailoring system using Gemini API to customize resumes against job descriptions. Developed keyword extraction and ATS optimization logic to improve resume-JD match rates. Created end-to-end pipeline from JD parsing to PDF generation using Python and LaTeX."
+  tags:
+    - tag: Python
+    - tag: Streamlit
+    - tag: Gemini API
+    - tag: LangChain
+    - tag: LaTeX
+
+- name: Movie Recommendation System
+  descr: "Content-based movie recommendation engine using KNN with cosine similarity. Built with Python and deployed on Streamlit."
+  github: https://github.com/Omega-84/Movie-Recommendation-Project
+  tags:
+    - tag: Python
+    - tag: Streamlit
+    - tag: Scikit-learn
+    - tag: SciPy
+
+- name: Inventory Optimization Forecasting Model
+  descr: "Developed 12-week purchase order forecasting model for Sports E-commerce retail chain to optimize supply chain inventory. Built ensemble time series models using SARIMA for demand forecasting. Conducted EDA revealing 97% seasonal decline and stockout risk across 508 ASINs. Implemented Monte Carlo simulation for stochastic inventory modeling."
+  tags:
+    - tag: Python
+    - tag: SARIMA
+    - tag: Monte Carlo
+    - tag: Pandas

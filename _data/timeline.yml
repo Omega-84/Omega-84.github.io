@@ -1,61 +1,68 @@
-# > title: Name of your timeline entry, university or work place
-# > title-url: Link to your timeline entry, university or work place
-# > date: Time span
-# > subtitle: The description under the title
-# > tags: List of tags you want to associate with the entry
-# > timeline-side: The side on which you want to display the entry: left or right
-
-# Example of a timeline entry
-# - title: airbnb
-#   title-url: https://example.com/
-#   date: Sep 2019 - Present
-#   subtitle: Fullstack Developer
-#   tags:
-#     - tag: React
-#     - tag: Javascript
-#     - tag: Ruby
-#     - tag: Rails
-#   timeline-side: right
-
-- title: airbnb
-  title-url: https://example.com/
-  date: Sep 2019 - Present
-  subtitle: Fullstack Developer
+- title: Northeastern University
+  title-url: https://www.northeastern.edu/
+  date: September 2025 - Present
+  subtitle: Graduate Teaching Assistant
   tags:
-    - tag: React
-    - tag: Javascript
-    - tag: Ruby
-    - tag: Rails
+    - tag: Python
+    - tag: SQL
+    - tag: R
+    - tag: Gemini
+    - tag: Claude
+    - tag: BigQuery
+    - tag: Snowflake
   timeline-side: right
 
-- title: Google
-  title-url: https://example.com/
-  date: Mar 2019 - Sep 2019
-  subtitle: Software Engineer as Intern
+- title: Board Americas
+  title-url: https://www.board.com/
+  date: June 2025 - August 2025
+  subtitle: Analytics Consultant Intern
   tags:
-    - tag: Flutter
-    - tag: Dart
-    - tag: Keycloak
+    - tag: Board ERP
+    - tag: FP&A
+    - tag: Data Modeling
+    - tag: ETL
   timeline-side: right
 
-- title: Super University
-  title-url: https://example.com/
-  date: 2017 - 2019
-  subtitle: M.Sc. Computer Science
+- title: Northeastern University
+  title-url: https://www.northeastern.edu/
+  date: September 2024 - December 2025
+  subtitle: M.S. Business Analytics (GPA 3.88)
   timeline-side: left
 
-- title: Facebook
-  title-url: https://example.com/
-  date: Sep 2017 - Mar 2019
-  subtitle: Front-End Developer as Intern
+- title: Varahe Analytics
+  title-url: https://varahe.com/
+  date: March 2024 - June 2024
+  subtitle: Data Engineer
   tags:
-    - tag: React
-    - tag: Node
-    - tag: Javascript
+    - tag: Python
+    - tag: AWS
+    - tag: PostgreSQL
+    - tag: MongoDB
+    - tag: Tableau
+    - tag: Selenium
   timeline-side: right
 
-- title: Super University
-  title-url: https://example.com/
-  date: 2014 - 2017
-  subtitle: B.A. Computer Science
+- title: Indira Gandhi National Open University
+  title-url: https://www.ignou.ac.in/
+  date: August 2022 - August 2023
+  subtitle: PG Diploma Computer Science
+  timeline-side: left
+
+- title: Paisabazaar
+  title-url: https://www.paisabazaar.com/
+  date: February 2022 - March 2024
+  subtitle: Data Scientist
+  tags:
+    - tag: Python
+    - tag: XGBoost
+    - tag: CatBoost
+    - tag: PySpark
+    - tag: Hive
+    - tag: Power BI
+  timeline-side: right
+
+- title: University of Delhi
+  title-url: https://www.du.ac.in/
+  date: July 2018 - July 2021
+  subtitle: B.Sc. Physics
   timeline-side: left

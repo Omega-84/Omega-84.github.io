@@ -20,7 +20,11 @@ $card-bg-color: linear-gradient(
   rgba(115, 115, 115, 0.15) 15%,
   rgba(43, 45, 47, 1) 80%
 );
-$primary-color: #ff073a;
+
+/* Primary colors - matching particles */
+$primary-color: #3b82f6;
+$primary-light: #60a5fa;
+$primary-dark: #2563eb;
 
 /* General */
 
@@ -133,7 +137,7 @@ a {
 }
 
 .neumorphism-card-big {
-  box-shadow: 5px 5px 4px #161718, -5px -5px 4px #404346;
+  box-shadow: 5px 5px 4px #1e293b, -5px -5px 4px #475569;
 }
 
 /* Preloader */
@@ -378,7 +382,7 @@ a {
   }
 }
 
-/* Skills Section */
+/* Skills Section - Blue Theme */
 
 #skills {
   align-items: center;
@@ -392,15 +396,19 @@ a {
   }
 
   div[skill-type="language"] {
-    color: #e84a5f;
+  color: #ef4444;  /* Red */
   }
 
   div[skill-type="framework"] {
-    color: #ff847c;
+    color: #8b5cf6;  /* Violet */
   }
 
   div[skill-type="tool"] {
-    color: #fecea8;
+    color: #10b981;  /* Emerald */
+  }
+
+  div[skill-type="cloud"] {
+    color: #f97316;  /* Orange */
   }
 
   div[skill-weight="1"] {
@@ -449,10 +457,10 @@ a {
   .timeline:before {
     background: linear-gradient(
       to bottom,
-      #f3f3f3 0%,
-      #d5d5d5 8%,
-      #d5d5d5 92%,
-      #f3f3f3 100%
+      #3b82f6 0%,
+      #60a5fa 8%,
+      #60a5fa 92%,
+      #3b82f6 100%
     );
     content: " ";
     height: 100%;
@@ -733,17 +741,26 @@ a {
     }
 
     input[id="language"]:checked ~ div[skill-type="framework"],
-    input[id="language"]:checked ~ div[skill-type="tool"] {
+    input[id="language"]:checked ~ div[skill-type="tool"],
+    input[id="language"]:checked ~ div[skill-type="cloud"] {
       @include filter-out;
     }
 
     input[id="framework"]:checked ~ div[skill-type="language"],
-    input[id="framework"]:checked ~ div[skill-type="tool"] {
+    input[id="framework"]:checked ~ div[skill-type="tool"],
+    input[id="framework"]:checked ~ div[skill-type="cloud"] {
       @include filter-out;
     }
 
     input[id="tool"]:checked ~ div[skill-type="language"],
-    input[id="tool"]:checked ~ div[skill-type="framework"] {
+    input[id="tool"]:checked ~ div[skill-type="framework"],
+    input[id="tool"]:checked ~ div[skill-type="cloud"] {
+      @include filter-out;
+    }
+
+    input[id="cloud"]:checked ~ div[skill-type="language"],
+    input[id="cloud"]:checked ~ div[skill-type="framework"],
+    input[id="cloud"]:checked ~ div[skill-type="tool"] {
       @include filter-out;
     }
   }
@@ -843,7 +860,7 @@ a {
   }
 
   #skills .filter-button {
-    width: 21.5%;
+    width: 17.5%;
   }
 
   .timeline-wrapper {
@@ -873,7 +890,7 @@ a {
   }
 
   #skills .filter-button {
-    width: 22%;
+    width: 18%;
   }
 
   .timeline-wrapper {
