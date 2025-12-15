@@ -15,11 +15,9 @@ $font-size-h1: 2rem !default;
 $font-weight-strong: 600;
 $text-color: #fff !default;
 $bg-color: rgba(43, 45, 47, 1);
-$card-bg-color: linear-gradient(
-  145deg,
-  rgba(115, 115, 115, 0.15) 15%,
-  rgba(43, 45, 47, 1) 80%
-);
+$card-bg-color: linear-gradient(145deg,
+    rgba(115, 115, 115, 0.15) 15%,
+    rgba(43, 45, 47, 1) 80%);
 
 /* Primary colors - matching particles */
 $primary-color: #3b82f6;
@@ -112,21 +110,17 @@ a {
 }
 
 .neumorphism-button {
-  background: linear-gradient(
-    145deg,
-    rgba(100, 100, 105, 0.15) 15%,
-    rgba(33, 33, 33, 0.4) 80%
-  );
+  background: linear-gradient(145deg,
+      rgba(100, 100, 105, 0.15) 15%,
+      rgba(33, 33, 33, 0.4) 80%);
   box-shadow: -4px -3px 2px 0 rgba(250, 250, 250, 0.13),
     4px 4px 2px 0 rgba(0, 0, 0, 0.4);
 }
 
 @mixin neumorphism-button-pressed {
-  background: linear-gradient(
-    150deg,
-    rgba(20, 20, 20, 0.4) 10%,
-    rgba(115, 115, 115, 0.15) 80%
-  );
+  background: linear-gradient(150deg,
+      rgba(20, 20, 20, 0.4) 10%,
+      rgba(115, 115, 115, 0.15) 80%);
   box-shadow: 1px 1px 2px 0 rgba(210, 210, 210, 0.4),
     -1px -1px 2px rgba(0, 0, 0, 0.4), inset 3px 3px 2px 0 rgba(0, 0, 0, 0.4),
     inset -1px -2px 2px rgba(210, 210, 210, 0.4);
@@ -194,16 +188,20 @@ a {
   }
 
   @keyframes spin {
+
     0%,
     100% {
       transform: translate(0);
     }
+
     25% {
       transform: translate(160%);
     }
+
     50% {
       transform: translate(160%, 160%);
     }
+
     75% {
       transform: translate(0, 160%);
     }
@@ -313,6 +311,7 @@ a {
       animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
         colorEmail 1s linear forwards;
     }
+
     .social-svg {
       fill: #d44638;
     }
@@ -323,6 +322,7 @@ a {
       animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
         colorLinkedin 1s linear forwards;
     }
+
     .social-svg {
       fill: #007bb6;
     }
@@ -333,6 +333,7 @@ a {
       animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
         colorTwitter 1s linear forwards;
     }
+
     .social-svg {
       fill: #1da1f2;
     }
@@ -351,6 +352,7 @@ a {
       stroke-dasharray: 510;
       stroke-width: 0.5rem;
     }
+
     to {
       stroke: $text-color;
       stroke-dasharray: 83;
@@ -393,13 +395,11 @@ a {
   }
 
   .timeline:before {
-    background: linear-gradient(
-      to bottom,
-      #3b82f6 0%,
-      #60a5fa 8%,
-      #60a5fa 92%,
-      #3b82f6 100%
-    );
+    background: linear-gradient(to bottom,
+        #3b82f6 0%,
+        #60a5fa 8%,
+        #60a5fa 92%,
+        #3b82f6 100%);
     content: " ";
     height: 100%;
     left: 50%;
@@ -693,7 +693,8 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    > * {
+
+    >* {
       width: 44%;
     }
   }
@@ -733,7 +734,7 @@ a {
   }
 
   .projects-wrapper {
-    > * {
+    >* {
       width: 45%;
     }
   }
@@ -759,7 +760,7 @@ a {
   }
 
   .projects-wrapper {
-    > * {
+    >* {
       width: 46%;
     }
   }
@@ -771,9 +772,11 @@ a {
   0% {
     bottom: 0;
   }
+
   50% {
     bottom: 0.5rem;
   }
+
   100% {
     bottom: 0;
   }
@@ -804,7 +807,7 @@ a {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid $primary-color;
-    box-shadow: 
+    box-shadow:
       0 0 20px rgba($primary-color, 0.3),
       8px 8px 16px rgba(0, 0, 0, 0.4),
       -8px -8px 16px rgba(255, 255, 255, 0.03);
@@ -812,7 +815,7 @@ a {
 
     &:hover {
       transform: scale(1.05);
-      box-shadow: 
+      box-shadow:
         0 0 30px rgba($primary-color, 0.5),
         8px 8px 20px rgba(0, 0, 0, 0.5),
         -8px -8px 20px rgba(255, 255, 255, 0.05);
@@ -944,8 +947,13 @@ a {
         transition: all 0.3s ease;
       }
 
-      &::before { top: -7px; }
-      &::after { top: 7px; }
+      &::before {
+        top: -7px;
+      }
+
+      &::after {
+        top: 7px;
+      }
     }
   }
 
@@ -980,6 +988,129 @@ a {
 // ================================
 // SKILLS SECTION (NEW)
 // ================================
+
+// Container for all skill boxes
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: $large-screen;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  // Each box takes equal width on larger screens
+  .skill-box {
+    flex: 0 1 calc(33.333% - 1.5rem); // 3 per row on large screens
+    min-width: 280px;
+    max-width: 400px;
+  }
+
+  @media (max-width: $medium-screen) {
+    .skill-box {
+      flex: 0 1 calc(50% - 1rem); // 2 per row on medium
+      min-width: 250px;
+    }
+  }
+
+  @media (max-width: $small-screen) {
+    gap: 1.5rem;
+
+    .skill-box {
+      flex: 0 1 100%; // 1 per row on small
+      max-width: 100%;
+    }
+  }
+}
+
+// Individual skill box container
+.skill-box {
+  // Much lighter background for better logo visibility
+  background: linear-gradient(145deg, #6a6f78 0%, #5a5f66 100%);
+  border-radius: 1.25rem;
+  padding: 1.75rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.3),
+    -6px -6px 12px rgba(255, 255, 255, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle gradient overlay for depth
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $primary-color, rgba($primary-color, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      8px 8px 20px rgba(0, 0, 0, 0.45),
+      -8px -8px 20px rgba(255, 255, 255, 0.06),
+      0 12px 40px rgba($primary-color, 0.18);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  .skill-title {
+    font-size: 1.15rem;
+    color: $primary-color;
+    margin-bottom: 1.25rem;
+    font-weight: $font-weight-strong;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba($primary-color, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .skill-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem; // Increased spacing between logos
+    margin-bottom: 1.25rem;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+      width: 42px; // Slightly larger logos
+      height: 42px;
+      object-fit: contain;
+      filter: none; // No grayscale - show full color for visibility
+      transition: filter 0.3s ease, transform 0.3s ease, background 0.3s ease;
+      padding: 6px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.25); // Much lighter background behind logos for visibility
+
+      &:hover {
+        filter: brightness(1.15);
+        transform: scale(1.2) translateY(-3px);
+        background: rgba($primary-color, 0.15);
+        box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+      }
+    }
+  }
+
+  .skill-text {
+    font-size: 0.85rem;
+    color: #aaa; // Lighter text for better readability
+    margin: 0;
+    line-height: 1.6;
+    font-style: italic;
+  }
+}
+
 #skills.skills-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1002,14 +1133,14 @@ a {
   border-radius: 1rem;
   padding: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 
+  box-shadow:
     8px 8px 16px rgba(0, 0, 0, 0.4),
     -8px -8px 16px rgba(255, 255, 255, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 
+    box-shadow:
       8px 8px 20px rgba(0, 0, 0, 0.5),
       -8px -8px 20px rgba(255, 255, 255, 0.05),
       0 10px 40px rgba($primary-color, 0.15);
@@ -1107,14 +1238,14 @@ a {
   border-radius: 1rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 
+  box-shadow:
     8px 8px 16px rgba(0, 0, 0, 0.4),
     -8px -8px 16px rgba(255, 255, 255, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 
+    box-shadow:
       8px 8px 20px rgba(0, 0, 0, 0.5),
       -8px -8px 20px rgba(255, 255, 255, 0.05),
       0 15px 50px rgba($primary-color, 0.2);
@@ -1124,7 +1255,13 @@ a {
     }
 
     .project-image img {
-      transform: scale(1.05);
+      transform: scale(1.1);
+      filter: brightness(0.4);
+    }
+
+    .project-tags-mini span {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -1137,33 +1274,69 @@ a {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.5s ease, filter 0.4s ease;
+      filter: brightness(1);
     }
 
     .project-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.7);
+      background: linear-gradient(180deg,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.7) 50%,
+          rgba(0, 0, 0, 0.9) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
 
       .project-tags-mini {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.5rem;
+        gap: 0.75rem;
         justify-content: center;
-        padding: 1rem;
+        padding: 1.5rem;
+        max-width: 90%;
 
         span {
-          background: rgba($primary-color, 0.2);
-          color: $primary-color;
-          padding: 0.25rem 0.75rem;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          border: 1px solid rgba($primary-color, 0.3);
+          background: rgba($primary-color, 0.25);
+          color: #fff;
+          padding: 0.4rem 1rem;
+          border-radius: 25px;
+          font-size: 0.85rem;
+          font-weight: 500;
+          border: 1px solid rgba($primary-color, 0.5);
+          box-shadow: 0 2px 10px rgba($primary-color, 0.3);
+          backdrop-filter: blur(4px);
+          transform: translateY(10px);
+          opacity: 0;
+          transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
+
+          &:nth-child(1) {
+            transition-delay: 0.05s;
+          }
+
+          &:nth-child(2) {
+            transition-delay: 0.1s;
+          }
+
+          &:nth-child(3) {
+            transition-delay: 0.15s;
+          }
+
+          &:nth-child(4) {
+            transition-delay: 0.2s;
+          }
+
+          &:nth-child(5) {
+            transition-delay: 0.25s;
+          }
+
+          &:hover {
+            background: rgba($primary-color, 0.5);
+            transform: translateY(-2px) scale(1.05);
+          }
         }
       }
     }
