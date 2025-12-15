@@ -14,6 +14,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon/favicon-16x16.png" | prepend: site.baseurl }}">
   <link rel="manifest" href="{{ "/assets/favicon/site.webmanifest" | prepend: site.baseurl }}">
 
+  <!-- DevIcons CDN for skill icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
   <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/assets/css/vendors.min.css" | prepend: site.baseurl }}">
 
@@ -22,6 +25,7 @@
 </head>
 
 <body>
+  {% include navbar.html %}
   <div id="preloader">
     <div class="load">
       <hr />
@@ -33,31 +37,115 @@
   {% include landing-page.html %}
   <div class="layout">
     {%if site.show_aboutme_card %}
-      <section class="card neumorphism-card-big">
+      <section id="about" class="card neumorphism-card-big">
         {% include section-aboutme.html %}
       </section>
     {% endif %}
     {%if site.show_skills_card %}
-      <section class="card neumorphism-card-big">
+      <section id="skills-section" class="card neumorphism-card-big">
         {% include section-skills.html %}
       </section>
     {% endif %}
     {%if site.show_timeline_card %}
-      <section class="card neumorphism-card-big">
+      <section id="timeline" class="card neumorphism-card-big">
         {% include section-timeline.html %}
       </section>
     {% endif %}
     {%if site.show_projects_card %}
-      <section class="card neumorphism-card-big">
+      <section id="projects-section" class="card neumorphism-card-big">
         {% include section-projects.html %}
       </section>
     {% endif %}
     {%if site.show_contact_card %}
-    <section class="card neumorphism-card-big">
+    <section id="contact" class="card neumorphism-card-big">
       {% include section-contact.html %}
     </section>
     {% endif %}
   </div>
   {% include footer.html %}
+
+  <!-- Navbar Script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navbar = document.querySelector('.navbar');
+    const toggle = document.querySelector('.navbar-toggle');
+    const menu = document.querySelector('.navbar-menu');
+    const scrollThreshold = 100; // Show navbar after scrolling 100px
+    
+    // Hide navbar initially
+    navbar.classList.add('navbar-hidden');
+
+    // Show/hide navbar on scroll
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      if (currentScroll > scrollThreshold) {
+        navbar.classList.remove('navbar-hidden');
+        navbar.classList.add('navbar-visible');
+      } else {
+        navbar.classList.remove('navbar-visible');
+        navbar.classList.add('navbar-hidden');
+      }
+      
+      lastScroll = currentScroll;
+    });
+
+    // Mobile menu toggle
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+
+      // Close menu when clicking a link
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('active');
+        });
+      });
+    }
+
+    // Smooth scroll for navbar anchor links
+    document.querySelectorAll('.navbar-menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.navbar-menu a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - navHeight - 100;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href').substring(1);
+        if (href === current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  });
+  </script>
 </body>
 </html>

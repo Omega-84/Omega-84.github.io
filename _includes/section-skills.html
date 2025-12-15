@@ -1,33 +1,73 @@
 <h1 class="title">{{site.skills_title}}</h1>
-<div id="skills">
-  <input type="radio" id="all" name="filter" checked />
-  <label class="filter-button neumorphism-button" for="all">All</label>
-  <input type="radio" id="language" name="filter" />
-  <label class="filter-button neumorphism-button" for="language">Languages</label>
-  <input type="radio" id="framework" name="filter" />
-  <label class="filter-button neumorphism-button" for="framework">Frameworks</label>
-  <input type="radio" id="tool" name="filter" />
-  <label class="filter-button neumorphism-button" for="tool">Tools</label>
-  <input type="radio" id="cloud" name="filter" />
-  <label class="filter-button neumorphism-button" for="cloud">Cloud & Data</label>
-  {% for language in site.data.skills-languages %}
-    <div skill-type="language" skill-weight="{{language.weight}}" data-aos="zoom-in">
-      {{language.name}}
+<div class="skills-container">
+  
+  <div class="skill-box" data-aos="fade-up">
+    <h3 class="skill-title">Languages</h3>
+    <div class="skill-logos">
+      <img src="{{ site.baseurl }}/assets/img/logos/python.png" alt="Python" title="Python">
+      <img src="{{ site.baseurl }}/assets/img/logos/r.png" alt="R" title="R">
+      <img src="{{ site.baseurl }}/assets/img/logos/sql.png" alt="SQL" title="SQL">
+      <img src="{{ site.baseurl }}/assets/img/logos/spark.png" alt="Spark" title="Spark">
+      <img src="{{ site.baseurl }}/assets/img/logos/java.png" alt="Java" title="Java">
+      <img src="{{ site.baseurl }}/assets/img/logos/json.png" alt="JSON" title="JSON">
     </div>
-  {% endfor %}
-  {% for framework in site.data.skills-frameworks %}
-    <div skill-type="framework" skill-weight="{{framework.weight}}" data-aos="zoom-in">
-      {{framework.name}}
+    <p class="skill-text">Data manipulation, scripting, and database querying</p>
+  </div>
+
+  <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
+    <h3 class="skill-title">Frameworks & Libraries</h3>
+    <div class="skill-logos">
+      <img src="{{ site.baseurl }}/assets/img/logos/numpy.png" alt="NumPy" title="NumPy">
+      <img src="{{ site.baseurl }}/assets/img/logos/pandas.png" alt="Pandas" title="Pandas">
+      <img src="{{ site.baseurl }}/assets/img/logos/scikit-learn.png" alt="Scikit-learn" title="Scikit-learn">
+      <img src="{{ site.baseurl }}/assets/img/logos/xgboost.png" alt="XGBoost" title="XGBoost">
+      <img src="{{ site.baseurl }}/assets/img/logos/lightgbm.png" alt="LightGBM" title="LightGBM">
+      <img src="{{ site.baseurl }}/assets/img/logos/pytorch.png" alt="PyTorch" title="PyTorch">
+      <img src="{{ site.baseurl }}/assets/img/logos/huggingface.png" alt="HuggingFace" title="HuggingFace">
+      <img src="{{ site.baseurl }}/assets/img/logos/langchain.png" alt="LangChain" title="LangChain">
     </div>
-  {% endfor %}
-  {% for tool in site.data.skills-tools %}
-    <div skill-type="tool" skill-weight="{{tool.weight}}" data-aos="zoom-in">
-      {{tool.name}}
+    <p class="skill-text">Machine learning, deep learning, and AI frameworks</p>
+  </div>
+
+  <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
+    <h3 class="skill-title">BI & Visualization</h3>
+    <div class="skill-logos">
+      <img src="{{ site.baseurl }}/assets/img/logos/tableau.png" alt="Tableau" title="Tableau">
+      <img src="{{ site.baseurl }}/assets/img/logos/powerbi.png" alt="Power BI" title="Power BI">
+      <img src="{{ site.baseurl }}/assets/img/logos/looker.png" alt="Looker" title="Looker">
+      <img src="{{ site.baseurl }}/assets/img/logos/matplotlib.png" alt="Matplotlib" title="Matplotlib">
+      <img src="{{ site.baseurl }}/assets/img/logos/seaborn.png" alt="Seaborn" title="Seaborn">
+      <img src="{{ site.baseurl }}/assets/img/logos/alteryx.png" alt="Alteryx" title="Alteryx">
     </div>
-  {% endfor %}
-  {% for cloud in site.data.skills-cloud %}
-    <div skill-type="cloud" skill-weight="{{cloud.weight}}" data-aos="zoom-in">
-      {{cloud.name}}
+    <p class="skill-text">Interactive dashboards, KPI tracking, and data storytelling</p>
+  </div>
+
+  <div class="skill-box" data-aos="fade-up" data-aos-delay="300">
+    <h3 class="skill-title">Tools</h3>
+    <div class="skill-logos">
+      <img src="{{ site.baseurl }}/assets/img/logos/git.png" alt="Git" title="Git">
+      <img src="{{ site.baseurl }}/assets/img/logos/bash.png" alt="Bash" title="Bash">
+      <img src="{{ site.baseurl }}/assets/img/logos/excel.png" alt="Excel" title="Excel">
+      <img src="{{ site.baseurl }}/assets/img/logos/vscode.png" alt="VS Code" title="VS Code">
+      <img src="{{ site.baseurl }}/assets/img/logos/jupyter.png" alt="Jupyter" title="Jupyter">
+      <img src="{{ site.baseurl }}/assets/img/logos/streamlit.png" alt="Streamlit" title="Streamlit">
+      <img src="{{ site.baseurl }}/assets/img/logos/board.png" alt="Board ERP" title="Board ERP">
     </div>
-  {% endfor %}
+    <p class="skill-text">Version control, IDEs, and development environments</p>
+  </div>
+
+  <div class="skill-box" data-aos="fade-up" data-aos-delay="400">
+    <h3 class="skill-title">Cloud & Data</h3>
+    <div class="skill-logos">
+      <img src="{{ site.baseurl }}/assets/img/logos/aws.png" alt="AWS" title="AWS">
+      <img src="{{ site.baseurl }}/assets/img/logos/gcp.png" alt="GCP" title="GCP">
+      <img src="{{ site.baseurl }}/assets/img/logos/snowflake.png" alt="Snowflake" title="Snowflake">
+      <img src="{{ site.baseurl }}/assets/img/logos/bigquery.png" alt="BigQuery" title="BigQuery">
+      <img src="{{ site.baseurl }}/assets/img/logos/databricks.png" alt="Databricks" title="Databricks">
+      <img src="{{ site.baseurl }}/assets/img/logos/dbt.png" alt="dbt" title="dbt">
+      <img src="{{ site.baseurl }}/assets/img/logos/airflow.png" alt="Airflow" title="Airflow">
+    </div>
+    <p class="skill-text">Cloud infrastructure, data warehousing, and ETL pipelines</p>
+  </div>
+
 </div>
