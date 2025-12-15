@@ -1,40 +1,70 @@
 {
   "particles": {
     "number": {
-      "value": 150,
+      "value": 80,
       "density": {
         "enable": true,
-        "value_area": 900
+        "value_area": 800
       }
     },
     "color": {
-      "value": "#60a5fa"
+      "value": [
+        "#60a5fa",
+        "#3b82f6",
+        "#818cf8",
+        "#a78bfa"
+      ]
     },
     "shape": {
-      "type": "circle"
+      "type": [
+        "circle",
+        "triangle"
+      ],
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
+      }
     },
     "opacity": {
-      "value": 0.7,
-      "random": false
+      "value": 0.6,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 1,
+        "opacity_min": 0.2,
+        "sync": false
+      }
     },
     "size": {
-      "value": 2,
-      "random": true
+      "value": 3,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 2,
+        "size_min": 0.5,
+        "sync": false
+      }
     },
     "line_linked": {
       "enable": true,
-      "distance": 120,
+      "distance": 150,
       "color": "#3b82f6",
-      "opacity": 0.4,
+      "opacity": 0.3,
       "width": 1
     },
     "move": {
       "enable": true,
-      "speed": 2,
+      "speed": 1.5,
       "direction": "none",
       "random": true,
       "straight": false,
-      "out_mode": "bounce"
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": true,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
     }
   },
   "interactivity": {
@@ -42,7 +72,7 @@
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "grab"
       },
       "onclick": {
         "enable": true,
@@ -51,13 +81,30 @@
       "resize": true
     },
     "modes": {
+      "grab": {
+        "distance": 180,
+        "line_linked": {
+          "opacity": 0.6
+        }
+      },
+      "bubble": {
+        "distance": 200,
+        "size": 6,
+        "duration": 2,
+        "opacity": 0.8,
+        "speed": 3
+      },
       "repulse": {
-        "distance": 100
+        "distance": 150,
+        "duration": 0.4
       },
       "push": {
-        "particles_nb": 3
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
       }
-    },
-    "retina_detect": true
-  }
+    }
+  },
+  "retina_detect": true
 }

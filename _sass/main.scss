@@ -64,7 +64,35 @@ a {
 
 .highlight-title {
   color: $primary-color;
-  text-shadow: 0.25rem 0.25rem 0.25rem $primary-color;
+  text-shadow: 0.25rem 0.25rem 0.25rem rgba($primary-color, 0.4);
+}
+
+// Animated gradient text effect
+.gradient-text {
+  background: linear-gradient(135deg,
+      #60a5fa 0%,
+      #a78bfa 25%,
+      #f472b6 50%,
+      #a78bfa 75%,
+      #60a5fa 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
+  text-shadow: none;
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .highlight-link {
@@ -385,6 +413,142 @@ a {
   }
 }
 
+// Scroll Down Indicator
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba($text-color, 0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  animation: fadeInUp 1s ease 2s both;
+
+  &:hover {
+    color: $primary-color;
+
+    .scroll-arrow {
+      transform: translateY(5px);
+    }
+  }
+
+  .scroll-indicator-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+    transition: transform 0.3s ease;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+    }
+  }
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-8px);
+  }
+
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+// Back to Top Button
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, $primary-color, $primary-light);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+  z-index: 999;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba($primary-color, 0.5);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    stroke: white;
+    stroke-width: 2.5;
+    fill: none;
+  }
+}
+
+// Section Title Enhancements
+.layout .card .title {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, $primary-color, transparent);
+    border-radius: 2px;
+  }
+}
+
 /* Timeline Section */
 
 .timeline-wrapper {
@@ -497,11 +661,53 @@ a {
   }
 
   .desc {
-    background: $bg-color;
+    background: linear-gradient(145deg, #3d4045 0%, #2d2f33 100%);
     border-radius: 1rem;
     margin: 1em 0 0 0;
-    padding: 0.75em;
+    padding: 1rem;
     text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e0e0e0;
+  }
+
+  .timeline-logo {
+    margin-bottom: 0.75rem;
+
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+      &:hover {
+        transform: scale(1.15);
+        box-shadow: 0 6px 20px rgba($primary-color, 0.4);
+      }
+    }
+  }
+
+  .timeline-desc-text {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  .tag-wrapper {
+    margin-top: 0.75rem;
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.35rem 0.6rem;
+      background: rgba($primary-color, 0.15);
+      border: 1px solid rgba($primary-color, 0.3);
+      color: $primary-light;
+    }
   }
 }
 
@@ -800,23 +1006,60 @@ a {
 
 .about-image {
   flex-shrink: 0;
+  position: relative;
+
+  // Animated ring behind the image
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: conic-gradient(from 0deg,
+        $primary-color,
+        #a78bfa,
+        #f472b6,
+        #a78bfa,
+        $primary-color );
+    border-radius: 50%;
+    animation: rotateGlow 4s linear infinite;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  // Inner mask to create ring effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $bg-color;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0.92);
+  }
 
   img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid $primary-color;
+    border: 4px solid rgba($primary-color, 0.5);
     box-shadow:
-      0 0 20px rgba($primary-color, 0.3),
+      0 0 30px rgba($primary-color, 0.4),
       8px 8px 16px rgba(0, 0, 0, 0.4),
       -8px -8px 16px rgba(255, 255, 255, 0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
 
     &:hover {
       transform: scale(1.05);
       box-shadow:
-        0 0 30px rgba($primary-color, 0.5),
+        0 0 50px rgba($primary-color, 0.6),
         8px 8px 20px rgba(0, 0, 0, 0.5),
         -8px -8px 20px rgba(255, 255, 255, 0.05);
     }
@@ -825,6 +1068,21 @@ a {
       width: 150px;
       height: 150px;
     }
+  }
+
+  &:hover::before {
+    animation: rotateGlow 2s linear infinite;
+    opacity: 1;
+  }
+}
+
+@keyframes rotateGlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -1065,14 +1323,16 @@ a {
 
   .skill-title {
     font-size: 1.15rem;
-    color: $primary-color;
+    color: #fff;
     margin-bottom: 1.25rem;
     font-weight: $font-weight-strong;
     padding-bottom: 0.6rem;
-    border-bottom: 1px solid rgba($primary-color, 0.25);
+    border-bottom: 2px solid rgba($primary-color, 0.6);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.02em;
   }
 
   .skill-logos {
@@ -1084,20 +1344,21 @@ a {
     align-items: center;
 
     img {
-      width: 42px; // Slightly larger logos
-      height: 42px;
+      width: 54px; // Larger logos for better visibility
+      height: 54px;
       object-fit: contain;
       filter: none; // No grayscale - show full color for visibility
       transition: filter 0.3s ease, transform 0.3s ease, background 0.3s ease;
-      padding: 6px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.25); // Much lighter background behind logos for visibility
+      padding: 8px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.9); // White background for best logo visibility
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 
       &:hover {
-        filter: brightness(1.15);
-        transform: scale(1.2) translateY(-3px);
-        background: rgba($primary-color, 0.15);
-        box-shadow: 0 4px 12px rgba($primary-color, 0.2);
+        filter: brightness(1.1);
+        transform: scale(1.15) translateY(-4px);
+        background: #fff;
+        box-shadow: 0 6px 16px rgba($primary-color, 0.25);
       }
     }
   }
@@ -1399,5 +1660,191 @@ a {
         }
       }
     }
+  }
+}
+
+// ================================
+// CUSTOM CURSOR GLOW EFFECT
+// ================================
+.cursor-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle,
+      rgba($primary-color, 0.08) 0%,
+      rgba($primary-color, 0.02) 40%,
+      transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+
+  @media (max-width: $small-screen) {
+    display: none; // Disable on mobile
+  }
+}
+
+// ================================
+// TIMELINE HEXAGON PULSE
+// ================================
+.timeline-wrapper .hexagon {
+  animation: hexPulse 3s ease-in-out infinite;
+
+  &::before,
+  &::after {
+    animation: hexPulse 3s ease-in-out infinite;
+  }
+}
+
+@keyframes hexPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba($primary-color, 0.4);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba($primary-color, 0.6);
+    transform: scale(1.1);
+  }
+}
+
+// ================================
+// PROJECT CARD 3D TILT EFFECT
+// ================================
+.project-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  &:hover {
+    .project-content {
+      transform: translateZ(20px);
+    }
+  }
+
+  .project-content {
+    transition: transform 0.3s ease;
+  }
+}
+
+// ================================
+// ENHANCED FOOTER
+// ================================
+.footer {
+  background: linear-gradient(180deg, rgba($bg-color, 0) 0%, $bg-color 20%);
+  padding: 3rem 1rem 2rem;
+  margin-top: 2rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $primary-color, transparent);
+  }
+
+  .footer-content {
+    max-width: $large-screen;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .footer-tagline {
+    color: rgba($text-color, 0.5);
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    a {
+      color: rgba($text-color, 0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s ease;
+      padding: 0.25rem 0.5rem;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+
+    .footer-divider {
+      color: rgba($text-color, 0.3);
+      font-size: 0.7rem;
+    }
+  }
+
+  .footer-copyright {
+    color: rgba($text-color, 0.4);
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  p {
+    color: rgba($text-color, 0.6);
+    font-size: 0.9rem;
+
+    a {
+      color: $primary-color;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-light;
+      }
+    }
+  }
+}
+
+// ================================
+// SMOOTH SCROLL BEHAVIOR
+// ================================
+html {
+  scroll-behavior: smooth;
+}
+
+// ================================
+// SELECTION STYLING
+// ================================
+::selection {
+  background: rgba($primary-color, 0.3);
+  color: $text-color;
+}
+
+// ================================
+// LINK HOVER UNDERLINE ANIMATION
+// ================================
+.highlight-link {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: $primary-color;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }

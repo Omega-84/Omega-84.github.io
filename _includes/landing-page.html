@@ -1,60 +1,72 @@
 <div id="landing">
   <div class="landing-title">
     <h1>Hi, I'm
-      <span class="highlight-title">{{site.username}}</span>,
+      <span class="highlight-title gradient-text">{{site.username}}</span>,
     </h1>
     <h1>
       <span id="txt-rotate" data-period="2000"
-        data-rotate='[{% for item in site.typing_carousel %}"{{ item }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]'
-      >
+        data-rotate='[{% for item in site.typing_carousel %}"{{ item }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]'>
       </span>
     </h1>
     <div class="landing-icons">
       {% if site.email and site.email != "" %}
-        <a class="social-link email" aria-label="My E-Mail" href="mailto:{{site.email}}">
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
+      <a class="social-link email" aria-label="My E-Mail" href="mailto:{{site.email}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/solid.svg#envelope" | prepend: site.baseurl }}"></use>
           </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/solid.svg#envelope" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">E-Mail</span>
-        </a>
+        </div>
+        <span class="label">E-Mail</span>
+      </a>
       {% endif %}
 
       {% if site.github_username and site.github_username != "" %}
-        <a class="social-link" aria-label="My GitHub" target="_blank" rel="noreferrer"
-          href="https://github.com/{{site.github_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
+      <a class="social-link" aria-label="My GitHub" target="_blank" rel="noreferrer"
+        href="https://github.com/{{site.github_username}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/brands.svg#github" | prepend: site.baseurl }}"></use>
           </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#github" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">GitHub</span>
-        </a>
+        </div>
+        <span class="label">GitHub</span>
+      </a>
       {% endif %}
 
       {% if site.linkedin_username and site.linkedin_username != "" %}
-        <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank"
-          rel="noreferrer" href="https://www.linkedin.com/in/{{site.linkedin_username}}"
-        >
-          <svg viewBox="0 0 200 200" class="circle">
-            <circle cx="100" cy="100" r="80" />
+      <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank" rel="noreferrer"
+        href="https://www.linkedin.com/in/{{site.linkedin_username}}">
+        <svg viewBox="0 0 200 200" class="circle">
+          <circle cx="100" cy="100" r="80" />
+        </svg>
+        <div class="social">
+          <svg class="social-svg" viewBox="0 0 48 48">
+            <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
+              /assets/img/brands.svg#linkedin-in" | prepend: site.baseurl }}"></use>
           </svg>
-          <div class="social">
-            <svg class="social-svg" viewBox="0 0 48 48">
-              <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "/assets/img/brands.svg#linkedin-in" | prepend: site.baseurl }}"></use>
-            </svg>
-          </div>
-          <span class="label">LinkedIn</span>
-        </a>
+        </div>
+        <span class="label">LinkedIn</span>
+      </a>
       {% endif %}
     </div>
   </div>
+
+  <!-- Scroll Down Indicator -->
+  <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+    <div class="scroll-indicator-inner">
+      <span class="scroll-text">Scroll</span>
+      <div class="scroll-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+        </svg>
+      </div>
+    </div>
+  </a>
 </div>

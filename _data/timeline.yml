@@ -2,6 +2,7 @@
   title-url: https://www.northeastern.edu/
   date: September 2025 - Present
   subtitle: Graduate Teaching Assistant
+  logo: northeastern.png
   tags:
     - tag: Python
     - tag: SQL
@@ -16,6 +17,7 @@
   title-url: https://www.board.com/
   date: June 2025 - August 2025
   subtitle: Analytics Consultant Intern
+  logo: board.png
   tags:
     - tag: Board ERP
     - tag: FP&A
@@ -27,12 +29,14 @@
   title-url: https://www.northeastern.edu/
   date: September 2024 - December 2025
   subtitle: M.S. Business Analytics (GPA 3.88)
+  logo: northeastern.png
   timeline-side: left
 
 - title: Varahe Analytics
   title-url: https://varahe.com/
   date: March 2024 - June 2024
   subtitle: Data Engineer
+  logo: varahe.png
   tags:
     - tag: Python
     - tag: AWS
@@ -46,12 +50,14 @@
   title-url: https://www.ignou.ac.in/
   date: August 2022 - August 2023
   subtitle: PG Diploma Computer Science
+  logo: ignou.png
   timeline-side: left
 
 - title: Paisabazaar
   title-url: https://www.paisabazaar.com/
   date: February 2022 - March 2024
   subtitle: Data Scientist
+  logo: paisabazaar.png
   tags:
     - tag: Python
     - tag: XGBoost
@@ -65,4 +71,5 @@
   title-url: https://www.du.ac.in/
   date: July 2018 - July 2021
   subtitle: B.Sc. Physics
+  logo: delhi.png
   timeline-side: left

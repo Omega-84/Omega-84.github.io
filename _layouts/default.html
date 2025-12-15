@@ -9,19 +9,22 @@
   <title>{{ site.title }}</title>
   <meta name="description" content="{{ site.description }}">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon/favicon-32x32.png" | prepend: site.baseurl }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon/favicon-16x16.png" | prepend: site.baseurl }}">
-  <link rel="manifest" href="{{ "/assets/favicon/site.webmanifest" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ " /assets/favicon/apple-touch-icon.png" | prepend: site.baseurl
+    }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ " /assets/favicon/favicon-32x32.png" | prepend: site.baseurl
+    }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ " /assets/favicon/favicon-16x16.png" | prepend: site.baseurl
+    }}">
+  <link rel="manifest" href="{{ " /assets/favicon/site.webmanifest" | prepend: site.baseurl }}">
 
   <!-- DevIcons CDN for skill icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-  <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | prepend: site.baseurl }}">
-  <link rel="stylesheet" href="{{ "/assets/css/vendors.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ " /assets/css/main.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ " /assets/css/vendors.min.css" | prepend: site.baseurl }}">
 
-  <script src="{{ "/assets/js/vendors.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ "/assets/js/app.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ " /assets/js/vendors.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ " /assets/js/app.min.js" | prepend: site.baseurl }}"></script>
 </head>
 
 <body>
@@ -37,24 +40,24 @@
   {% include landing-page.html %}
   <div class="layout">
     {%if site.show_aboutme_card %}
-      <section id="about" class="card neumorphism-card-big">
-        {% include section-aboutme.html %}
-      </section>
+    <section id="about" class="card neumorphism-card-big">
+      {% include section-aboutme.html %}
+    </section>
     {% endif %}
     {%if site.show_skills_card %}
-      <section id="skills-section" class="card neumorphism-card-big">
-        {% include section-skills.html %}
-      </section>
+    <section id="skills-section" class="card neumorphism-card-big">
+      {% include section-skills.html %}
+    </section>
     {% endif %}
     {%if site.show_timeline_card %}
-      <section id="timeline" class="card neumorphism-card-big">
-        {% include section-timeline.html %}
-      </section>
+    <section id="timeline" class="card neumorphism-card-big">
+      {% include section-timeline.html %}
+    </section>
     {% endif %}
     {%if site.show_projects_card %}
-      <section id="projects-section" class="card neumorphism-card-big">
-        {% include section-projects.html %}
-      </section>
+    <section id="projects-section" class="card neumorphism-card-big">
+      {% include section-projects.html %}
+    </section>
     {% endif %}
     {%if site.show_contact_card %}
     <section id="contact" class="card neumorphism-card-big">
@@ -62,90 +65,140 @@
     </section>
     {% endif %}
   </div>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
   {% include footer.html %}
 
   <!-- Navbar Script -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const navbar = document.querySelector('.navbar');
-    const toggle = document.querySelector('.navbar-toggle');
-    const menu = document.querySelector('.navbar-menu');
-    const scrollThreshold = 100; // Show navbar after scrolling 100px
-    
-    // Hide navbar initially
-    navbar.classList.add('navbar-hidden');
+    document.addEventListener('DOMContentLoaded', () => {
+      const navbar = document.querySelector('.navbar');
+      const toggle = document.querySelector('.navbar-toggle');
+      const menu = document.querySelector('.navbar-menu');
+      const scrollThreshold = 100; // Show navbar after scrolling 100px
 
-    // Show/hide navbar on scroll
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > scrollThreshold) {
-        navbar.classList.remove('navbar-hidden');
-        navbar.classList.add('navbar-visible');
-      } else {
-        navbar.classList.remove('navbar-visible');
-        navbar.classList.add('navbar-hidden');
-      }
-      
-      lastScroll = currentScroll;
-    });
+      // Hide navbar initially
+      navbar.classList.add('navbar-hidden');
 
-    // Mobile menu toggle
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
+      // Show/hide navbar on scroll
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > scrollThreshold) {
+          navbar.classList.remove('navbar-hidden');
+          navbar.classList.add('navbar-visible');
+        } else {
+          navbar.classList.remove('navbar-visible');
+          navbar.classList.add('navbar-hidden');
+        }
+
+        lastScroll = currentScroll;
       });
 
-      // Close menu when clicking a link
-      menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menu.classList.remove('active');
+      // Mobile menu toggle
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        menu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            menu.classList.remove('active');
+          });
+        });
+      }
+
+      // Smooth scroll for navbar anchor links
+      document.querySelectorAll('.navbar-menu a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
         });
       });
-    }
 
-    // Smooth scroll for navbar anchor links
-    document.querySelectorAll('.navbar-menu a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const target = document.getElementById(targetId);
-        if (target) {
-          const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+      // Active link highlighting on scroll
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.navbar-menu a');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - navHeight - 100;
+          if (window.pageYOffset >= sectionTop) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          const href = link.getAttribute('href').substring(1);
+          if (href === current) {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Back to Top Button
+      const backToTop = document.querySelector('.back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 500) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        });
+
+        backToTop.addEventListener('click', () => {
           window.scrollTo({
-            top: targetPosition,
+            top: 0,
             behavior: 'smooth'
           });
-        }
+        });
+      }
+
+      // Custom Cursor Glow Effect
+      const cursorGlow = document.createElement('div');
+      cursorGlow.className = 'cursor-glow';
+      document.body.appendChild(cursorGlow);
+
+      let mouseX = 0, mouseY = 0;
+      let glowX = 0, glowY = 0;
+
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
       });
+
+      function animateCursor() {
+        glowX += (mouseX - glowX) * 0.1;
+        glowY += (mouseY - glowY) * 0.1;
+        cursorGlow.style.left = glowX + 'px';
+        cursorGlow.style.top = glowY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
     });
-
-    // Active link highlighting on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.navbar-menu a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - navHeight - 100;
-        if (window.pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        const href = link.getAttribute('href').substring(1);
-        if (href === current) {
-          link.classList.add('active');
-        }
-      });
-    });
-  });
   </script>
 </body>
+
 </html>
