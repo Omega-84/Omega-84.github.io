@@ -1,144 +1,174 @@
 {% if site.show_projects %}
-  <h1 class="title"><span>{{site.projects_title}}</span></h1>
-  <div id="projects" class="projects-grid">
-    
-    <!-- Insurance Cross-Sell -->
-    <div class="project-card" data-aos="fade-up">
-      <div class="project-image">
-        <img src="{{ site.baseurl }}/assets/img/projects/insurance.jpg" alt="Insurance Cross-Sell Prediction">
-        <div class="project-overlay">
-          <div class="project-tags-mini">
-            <span>Python</span>
-            <span>LightGBM</span>
-            <span>Scikit-learn</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Insurance Cross-Sell Prediction</h3>
-        <p>Built a LightGBM classification model achieving 85% AUC to identify high-potential customers for cross-selling, improving product sales by 18% across 380K customers.</p>
-        <div class="project-links">
-          <a href="https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling" target="_blank" class="btn-project">
-            <i class="devicon-github-original"></i> View Code
-          </a>
+<h1 class="title"><span>{{site.projects_title}}</span></h1>
+<div id="projects" class="projects-grid">
+
+  <!-- Healthcare Provider Fraud Detection -->
+  <div class="project-card" data-aos="fade-up">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/healthcare-fraud.png" alt="Healthcare Provider Fraud Detection">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>XGBoost</span>
+          <span>FastAPI</span>
+          <span>AWS ECS</span>
         </div>
       </div>
     </div>
-
-    <!-- ETL Pipeline -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="project-image">
-        <img src="{{ site.baseurl }}/assets/img/projects/etl.jpg" alt="ETL Pipeline Orchestration">
-        <div class="project-overlay">
-          <div class="project-tags-mini">
-            <span>Python</span>
-            <span>Airflow</span>
-            <span>AWS</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>ETL Pipeline Orchestration</h3>
-        <p>Developed a scalable ETL pipeline using Selenium for scraping, Pandas for processing, and AWS S3 for storage. Automated with Apache Airflow DAGs on EC2.</p>
-        <div class="project-links">
-          <a href="https://github.com/Omega-84/airflow_data_engg_project" target="_blank" class="btn-project">
-            <i class="devicon-github-original"></i> View Code
-          </a>
-        </div>
+    <div class="project-content">
+      <h3>Healthcare Fraud Detection</h3>
+      <p>End-to-end ML system using XGBoost to classify fraudulent healthcare providers. Features Optuna tuning, MLflow
+        tracking, FastAPI + Gradio UI, Docker, and AWS ECS deployment.</p>
+      <div class="project-links">
+        <a href="https://github.com/Omega-84/Healthcare_Provider_Fraud" target="_blank" class="btn-project">
+          <i class="devicon-github-original"></i> View Code
+        </a>
       </div>
     </div>
-
-    <!-- Supply Chain Optimization -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="project-image">
-        <img src="{{ site.baseurl }}/assets/img/projects/supply-chain.jpg" alt="Supply Chain Optimization">
-        <div class="project-overlay">
-          <div class="project-tags-mini">
-            <span>Python</span>
-            <span>PuLP</span>
-            <span>Streamlit</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Supply Chain Optimization</h3>
-        <p>Built a logistics optimization model using PuLP to reduce shipping costs by 25% for a 3-warehouse network. Created interactive Streamlit UI with what-if analysis.</p>
-        <div class="project-links">
-          <a href="https://github.com/Omega-84/Supply-Chain-Optimization" target="_blank" class="btn-project">
-            <i class="devicon-github-original"></i> View Code
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Resume Tailoring -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="project-image">
-        <img src="{{ site.baseurl }}/assets/img/projects/resume.jpg" alt="Resume Tailoring Automation">
-        <div class="project-overlay">
-          <div class="project-tags-mini">
-            <span>Python</span>
-            <span>Gemini API</span>
-            <span>LaTeX</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Resume Tailoring Automation</h3>
-        <p>Automated resume customization system using Gemini API with keyword extraction, ATS optimization, and end-to-end pipeline from JD parsing to PDF generation.</p>
-        <div class="project-links">
-          <span class="btn-project btn-private">
-            <i class="devicon-github-original"></i> Private
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Movie Recommendation -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-      <div class="project-image">
-        <img src="{{ site.baseurl }}/assets/img/projects/movie.jpg" alt="Movie Recommendation System">
-        <div class="project-overlay">
-          <div class="project-tags-mini">
-            <span>Python</span>
-            <span>Scikit-learn</span>
-            <span>Streamlit</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Movie Recommendation System</h3>
-        <p>Content-based recommendation engine using KNN with cosine similarity. Deployed on Streamlit for interactive movie discovery based on user preferences.</p>
-        <div class="project-links">
-          <a href="https://github.com/Omega-84/Movie-Recommendation-Project" target="_blank" class="btn-project">
-            <i class="devicon-github-original"></i> View Code
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Inventory Optimization -->
-    <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-      <div class="project-image">
-        <img src="{{ site.baseurl }}/assets/img/projects/inventory.jpg" alt="Inventory Optimization">
-        <div class="project-overlay">
-          <div class="project-tags-mini">
-            <span>R</span>
-            <span>SARIMA</span>
-            <span>Monte Carlo</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Inventory Optimization Forecasting</h3>
-        <p>12-week purchase order forecasting model for e-commerce retail using ensemble SARIMA and Monte Carlo simulation. Analyzed 508 ASINs for seasonal patterns.</p>
-        <div class="project-links">
-          <span class="btn-project btn-private">
-            <i class="devicon-github-original"></i> Private
-          </span>
-        </div>
-      </div>
-    </div>
-
   </div>
+
+  <!-- Insurance Cross-Sell -->
+  <div class="project-card" data-aos="fade-up">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/insurance.jpg" alt="Insurance Cross-Sell Prediction">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>Python</span>
+          <span>LightGBM</span>
+          <span>Scikit-learn</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>Insurance Cross-Sell Prediction</h3>
+      <p>Built a LightGBM classification model achieving 85% AUC to identify high-potential customers for cross-selling,
+        improving product sales by 18% across 380K customers.</p>
+      <div class="project-links">
+        <a href="https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling" target="_blank" class="btn-project">
+          <i class="devicon-github-original"></i> View Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETL Pipeline -->
+  <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/etl.jpg" alt="ETL Pipeline Orchestration">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>Python</span>
+          <span>Airflow</span>
+          <span>AWS</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>ETL Pipeline Orchestration</h3>
+      <p>Developed a scalable ETL pipeline using Selenium for scraping, Pandas for processing, and AWS S3 for storage.
+        Automated with Apache Airflow DAGs on EC2.</p>
+      <div class="project-links">
+        <a href="https://github.com/Omega-84/airflow_data_engg_project" target="_blank" class="btn-project">
+          <i class="devicon-github-original"></i> View Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supply Chain Optimization -->
+  <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/supply-chain.jpg" alt="Supply Chain Optimization">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>Python</span>
+          <span>PuLP</span>
+          <span>Streamlit</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>Supply Chain Optimization</h3>
+      <p>Built a logistics optimization model using PuLP to reduce shipping costs by 25% for a 3-warehouse network.
+        Created interactive Streamlit UI with what-if analysis.</p>
+      <div class="project-links">
+        <a href="https://github.com/Omega-84/Supply-Chain-Optimization" target="_blank" class="btn-project">
+          <i class="devicon-github-original"></i> View Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resume Tailoring -->
+  <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/resume.jpg" alt="Resume Tailoring Automation">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>Python</span>
+          <span>Gemini API</span>
+          <span>LaTeX</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>Resume Tailoring Automation</h3>
+      <p>Automated resume customization system using Gemini API with keyword extraction, ATS optimization, and
+        end-to-end pipeline from JD parsing to PDF generation.</p>
+      <div class="project-links">
+        <span class="btn-project btn-private">
+          <i class="devicon-github-original"></i> Private
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Recommendation -->
+  <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/movie.jpg" alt="Movie Recommendation System">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>Python</span>
+          <span>Scikit-learn</span>
+          <span>Streamlit</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>Movie Recommendation System</h3>
+      <p>Content-based recommendation engine using KNN with cosine similarity. Deployed on Streamlit for interactive
+        movie discovery based on user preferences.</p>
+      <div class="project-links">
+        <a href="https://github.com/Omega-84/Movie-Recommendation-Project" target="_blank" class="btn-project">
+          <i class="devicon-github-original"></i> View Code
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inventory Optimization -->
+  <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/inventory.jpg" alt="Inventory Optimization">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>R</span>
+          <span>SARIMA</span>
+          <span>Monte Carlo</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>Inventory Optimization Forecasting</h3>
+      <p>12-week purchase order forecasting model for e-commerce retail using ensemble SARIMA and Monte Carlo
+        simulation. Analyzed 508 ASINs for seasonal patterns.</p>
+      <div class="project-links">
+        <span class="btn-project btn-private">
+          <i class="devicon-github-original"></i> Private
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
 {% endif %}

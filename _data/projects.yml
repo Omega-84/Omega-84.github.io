@@ -1,3 +1,14 @@
+- name: Healthcare Provider Fraud Detection
+  descr: "End-to-end ML system using XGBoost to classify healthcare providers as potentially fraudulent. Features include hyperparameter tuning with Optuna, MLflow experiment tracking, FastAPI backend with Gradio UI, Docker containerization, and AWS ECS Fargate deployment with CI/CD via GitHub Actions."
+  github: https://github.com/Omega-84/Healthcare_Provider_Fraud
+  tags:
+    - tag: Python
+    - tag: XGBoost
+    - tag: FastAPI
+    - tag: Docker
+    - tag: AWS ECS
+    - tag: MLflow
+
 - name: Insurance Cross-Sell Prediction System
   descr: "Created a machine learning model using LightGBM to identify high-potential customers, improving product sales by 18%. Built classification model achieving 85% AUC score on dataset of 380K customers. Conducted feature engineering on demographic and policy-related variables."
   github: https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling

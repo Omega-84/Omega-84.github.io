@@ -23,7 +23,7 @@ typing_carousel:
 # ABOUT ME SECTION
 show_aboutme_card: true
 about_me_title: About Me
-about_me_description: Data Scientist with 2+ years of experience building machine learning models, data pipelines, and analytics solutions. Currently pursuing MS in Business Analytics at Northeastern University (GPA 3.88). Previously worked at Paisabazaar (India's largest credit marketplace) where I developed ML models that increased customer acquisition by 28% and reduced loan defaults by 32%. Skilled in Python, SQL, AWS, and various ML frameworks. Passionate about turning data into actionable insights and building end-to-end data solutions.
+about_me_description: Data Scientist with 2+ years of experience building machine learning models, data pipelines, and analytics solutions. Graduated with MS in Business Analytics from Northeastern University (GPA 3.8). Previously worked at Paisabazaar (India's largest credit marketplace) where I developed ML models that increased customer acquisition by 28% and reduced loan defaults by 32%. Skilled in Python, SQL, AWS, and various ML frameworks. Passionate about turning data into actionable insights and building end-to-end data solutions.
 
 # SKILLS SECTION
 show_skills_card: true
