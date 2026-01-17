@@ -58,7 +58,7 @@ projects:
 # GOOGLE-ANALYTICS
 # Set your own tracking id or leave empty
 google-analytics:
-  id: ""
+  id: "G-W6Y0MSV0H7"
 
 ### END OF VALUES YOU SHOULD CHANGE ###
 
