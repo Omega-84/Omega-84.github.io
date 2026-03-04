@@ -263,19 +263,42 @@ a {
   background: $bg-color;
   color: $text-color;
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
+  min-height: 100vh;
   margin: 0.5rem;
   padding: 0.5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  // Force particles canvas to be a background layer
+  >canvas,
+  .particles-js-canvas-el {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0;
+  }
 }
 
 .landing-title {
-  left: 0;
-  margin: 0.5rem;
-  padding: 0.5rem;
   position: absolute;
-  right: 0;
-  top: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: $large-screen;
+  padding: 1rem 2rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .landing-icons {
@@ -315,6 +338,7 @@ a {
 
     &:hover {
       cursor: pointer;
+      z-index: 10;
 
       .circle {
         animation: outWaveIn 1s cubic-bezier(0.42, 0, 0.58, 1) forwards,
@@ -487,6 +511,18 @@ a {
   to {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes fadeInUpFlow {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -1975,5 +2011,396 @@ html {
 
   &:hover::before {
     left: 100%;
+  }
+}
+
+// ================================
+// LANDING PAGE TAGLINE
+// ================================
+.landing-tagline {
+  font-size: 1rem;
+  color: rgba($text-color, 0.55);
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  animation: fadeInUpFlow 1s ease 1.2s both;
+
+  @media (min-width: $small-screen) {
+    font-size: 1.1rem;
+  }
+}
+
+// ================================
+// HERO CTA BUTTONS
+// ================================
+.hero-cta-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  /* Pushed down to prevent hover overlap */
+  animation: fadeInUpFlow 1s ease 1.6s both;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  font-family: $font-family;
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+.hero-btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, $primary-color, $primary-light);
+  border: none;
+  box-shadow: 0 4px 15px rgba($primary-color, 0.4);
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba($primary-color, 0.5);
+    color: #fff;
+  }
+
+  &:hover svg {
+    transform: translateY(2px);
+  }
+}
+
+.hero-btn-outline {
+  color: $text-color;
+  background: transparent;
+  border: 1.5px solid rgba($text-color, 0.3);
+
+  &:hover {
+    border-color: $primary-color;
+    color: $primary-color;
+    background: rgba($primary-color, 0.08);
+    transform: translateY(-3px);
+  }
+}
+
+// ================================
+// STATS COUNTER BAR
+// ================================
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2.5rem auto 1.5rem;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  max-width: 900px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+
+  // Subtle animated border glow
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    background: linear-gradient(90deg, transparent 0%, rgba($primary-color, 0.3) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: borderSweep 4s ease-in-out infinite;
+    border-radius: 1.5rem;
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  @keyframes borderSweep {
+
+    0%,
+    100% {
+      background-position: -200% 0;
+    }
+
+    50% {
+      background-position: 200% 0;
+    }
+  }
+
+  @media (max-width: $small-screen) {
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100px;
+  padding: 0.5rem;
+
+  @media (max-width: $small-screen) {
+    min-width: 80px;
+  }
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: $font-family-numbers;
+  background: linear-gradient(135deg, $primary-color, $primary-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+
+  @media (max-width: $small-screen) {
+    font-size: 1.6rem;
+  }
+}
+
+.stat-suffix {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: $font-family-numbers;
+  background: linear-gradient(135deg, $primary-color, $primary-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media (max-width: $small-screen) {
+    font-size: 1rem;
+  }
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba($text-color, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.4rem;
+  text-align: center;
+  font-weight: 500;
+
+  @media (max-width: $small-screen) {
+    font-size: 0.65rem;
+  }
+}
+
+.stat-divider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(180deg, transparent, rgba($text-color, 0.15), transparent);
+
+  @media (max-width: $small-screen) {
+    height: 35px;
+  }
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+// ================================
+// STATUS BADGE (OPEN TO WORK)
+// ================================
+.status-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: #4ade80;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+  }
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: statusPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes statusPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+}
+
+// ================================
+// PROJECT FILTER TABS
+// ================================
+.project-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: 1px solid rgba($text-color, 0.15);
+  border-radius: 50px;
+  color: rgba($text-color, 0.6);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: $font-family;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: rgba($primary-color, 0.5);
+    color: $primary-color;
+    background: rgba($primary-color, 0.05);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, $primary-color, $primary-light);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba($primary-color, 0.35);
+  }
+}
+
+// ================================
+// FEATURED PROJECT BADGE
+// ================================
+.project-card.featured {
+  position: relative;
+  border: 1.5px solid rgba(251, 191, 36, 0.35);
+
+  &:hover {
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(251, 191, 36, 0.2),
+      0 0 60px rgba(251, 191, 36, 0.1),
+      inset 0 0 0 1px rgba(251, 191, 36, 0.15);
+  }
+}
+
+.featured-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #1a1a2e;
+  padding: 0.3rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 50px;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.4);
+  letter-spacing: 0.5px;
+}
+
+// ================================
+// PROJECT IMPACT CHIPS
+// ================================
+.project-impact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.impact-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.75rem;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  color: #4ade80;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(34, 197, 94, 0.15);
+    transform: translateY(-1px);
+  }
+}
+
+// ================================
+// PROJECT CARD FILTER ANIMATION
+// ================================
+.project-card {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease,
+    opacity 0.4s ease;
+
+  &.hidden {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    pointer-events: none;
+    position: absolute;
+    visibility: hidden;
+  }
+}
+
+// ================================
+// SECTION REVEAL ANIMATION
+// ================================
+.card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: sectionReveal 0.8s ease forwards;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.15}s;
+    }
+  }
+}
+
+@keyframes sectionReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

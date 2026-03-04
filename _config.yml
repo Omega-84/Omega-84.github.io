@@ -12,18 +12,17 @@ username: Varun Nayyar
 email: nayyar.v@northeastern.edu
 # Social links - only keeping the ones you want
 github_username: Omega-84
-linkedin_username: varun-nayyar-ml  
+linkedin_username: varun-nayyar-ml
 
 typing_carousel:
   - Data Scientist
   - ML Engineer
   - AI Enthusiast
-  - Almost a Chef 👨‍🍳
 
 # ABOUT ME SECTION
 show_aboutme_card: true
 about_me_title: About Me
-about_me_description: Data Scientist with 2+ years of experience building machine learning models, data pipelines, and analytics solutions. Graduated with MS in Business Analytics from Northeastern University (GPA 3.8). Previously worked at Paisabazaar (India's largest credit marketplace) where I developed ML models that increased customer acquisition by 28% and reduced loan defaults by 32%. Skilled in Python, SQL, AWS, and various ML frameworks. Passionate about turning data into actionable insights and building end-to-end data solutions.
+about_me_description: Data Scientist with 2+ years of experience shipping ML models, data pipelines, and analytics solutions that drive real business impact. At Paisabazaar (India's largest credit marketplace), I built XGBoost and CatBoost models on 500K+ samples that increased customer acquisition by 28% and reduced loan defaults by 32%, and helped scale a financial product from $1.2M to $11M in 3 months. I've processed 30M+ daily records, built PySpark data marts, and deployed end-to-end ML systems on AWS ECS Fargate. MS in Business Analytics from Northeastern University (GPA 3.8).
 
 # SKILLS SECTION
 show_skills_card: true
@@ -32,7 +31,7 @@ skills_title: Skills
 # TIMELINE SECTION
 show_timeline_card: true
 timeline_title: Education & Experience
-cv_download_link: https://drive.google.com/file/d/1hwTzIQkei7VPa9K0ayL9buF_8Q5yj6bN/view?usp=sharing  # Update with your actual resume link
+cv_download_link: https://drive.google.com/file/d/1hwTzIQkei7VPa9K0ayL9buF_8Q5yj6bN/view?usp=sharing # Update with your actual resume link
 
 # PROJECTS SECTION
 show_projects_card: true
@@ -44,7 +43,7 @@ os_projects_title: Open Source Projects
 # CONTACT SECTION
 show_contact_card: true
 contact_title: Contact
-contact_description: Recent MS Business Analytics graduate from Northeastern University with 2+ years of industry experience in data science and machine learning. Open to Data Scientist, ML Engineer, and Business Analyst opportunities. Let's connect to discuss how I can bring value to your team. Based in Boston, MA and open to relocation.
+contact_description: MS Business Analytics from Northeastern (GPA 3.8) with 2+ years at Paisabazaar building ML models on 500K+ samples and scaling products to $11M. Actively seeking Data Scientist, ML Engineer, and Business Analyst roles. Based in Boston, MA - open to relocation.
 
 # GITHUB-METADATA
 repository: Omega-84/Omega-84.github.io

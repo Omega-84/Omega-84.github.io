@@ -1,20 +1,20 @@
-setTimeout(function() {
+setTimeout(function () {
   fadeOutPreloader(document.getElementById('preloader'), 69);
 }, 1500);
 
-$(document).ready(function() {
-  $(window).on('beforeunload', function() {
+$(document).ready(function () {
+  $(window).on('beforeunload', function () {
     window.scrollTo(0, 0);
   });
 
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('landing', 'assets/particles.json', function() {});
+  particlesJS.load('landing', 'assets/particles.json', function () { });
 
   // Typing Text
   var element = document.getElementById('txt-rotate');
   var toRotate = element.getAttribute('data-rotate');
   var period = element.getAttribute('data-period');
-  setTimeout(function() {
+  setTimeout(function () {
     new TxtRotate(element, JSON.parse(toRotate), period);
   }, 1500);
 
@@ -34,7 +34,11 @@ $(document).ready(function() {
     once: true
   });
 
-  randomizeOrder();
+  // Initialize Stats Counter Animation
+  initStatsCounter();
+
+  // Initialize Project Filters
+  initProjectFilters();
 });
 
 /* FUNCTIONS */
@@ -43,7 +47,7 @@ $(document).ready(function() {
 function fadeOutPreloader(element, duration) {
   opacity = 1;
 
-  interval = setInterval(function() {
+  interval = setInterval(function () {
     if (opacity <= 0) {
       element.style.zIndex = 0;
       element.style.opacity = 0;
@@ -66,7 +70,7 @@ function fadeOutPreloader(element, duration) {
 
 /* Typing Text */
 
-var TxtRotate = function(el, toRotate, period) {
+var TxtRotate = function (el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
   this.loopNum = 0;
@@ -76,7 +80,7 @@ var TxtRotate = function(el, toRotate, period) {
   this.isDeleting = false;
 };
 
-TxtRotate.prototype.tick = function() {
+TxtRotate.prototype.tick = function () {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
 
@@ -103,21 +107,90 @@ TxtRotate.prototype.tick = function() {
     delta = 500;
   }
 
-  setTimeout(function() {
+  setTimeout(function () {
     that.tick();
   }, delta);
 };
 
-/* Word Cloud */
+/* Stats Counter Animation - using IntersectionObserver for reliability */
 
-function randomizeOrder() {
-  var parent = document.getElementById('skills');
-  var divs = parent.getElementsByTagName('div');
-  var frag = document.createDocumentFragment();
+function initStatsCounter() {
+  var statsBar = document.querySelector('.stats-bar');
+  if (!statsBar) return;
 
-  // Randomize order of skills
-  while (divs.length) {
-    frag.appendChild(divs[Math.floor(Math.random() * divs.length)]);
+  // Only animate non-GPA numbers (GPA is pre-filled to avoid decimal issues)
+  var statNumbers = statsBar.querySelectorAll('.stat-number:not(.stat-gpa)');
+  if (!statNumbers.length) return;
+
+  function runCounters() {
+    statNumbers.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var duration = 2000;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        // Ease out cubic
+        var easedProgress = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(easedProgress * target);
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target;
+        }
+      }
+
+      requestAnimationFrame(step);
+    });
   }
-  parent.appendChild(frag);
+
+  // Use IntersectionObserver for reliable trigger
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          runCounters();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(statsBar);
+  } else {
+    // Fallback for old browsers
+    runCounters();
+  }
+}
+
+/* Project Filters */
+
+function initProjectFilters() {
+  var filterBtns = document.querySelectorAll('.filter-btn');
+  var projectCards = document.querySelectorAll('.project-card');
+
+  if (!filterBtns.length || !projectCards.length) return;
+
+  filterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      // Update active button
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(function (card) {
+        var category = card.getAttribute('data-category');
+
+        if (filter === 'all' || category === filter) {
+          card.classList.remove('hidden');
+          card.style.position = '';
+          card.style.visibility = '';
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
 }

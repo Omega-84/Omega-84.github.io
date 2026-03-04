@@ -1,5 +1,5 @@
 - name: Healthcare Provider Fraud Detection
-  descr: "End-to-end ML system using XGBoost to classify healthcare providers as potentially fraudulent. Features include hyperparameter tuning with Optuna, MLflow experiment tracking, FastAPI backend with Gradio UI, Docker containerization, and AWS ECS Fargate deployment with CI/CD via GitHub Actions."
+  descr: "Developed end-to-end ML pipeline for Medicare fraud detection across 5,400+ healthcare providers, achieving 95.5% ROC-AUC and 88% recall using XGBoost. Engineered 44 predictive features, implemented Optuna hyperparameter optimization, and deployed to AWS ECS Fargate with CI/CD via GitHub Actions."
   github: https://github.com/Omega-84/Healthcare_Provider_Fraud
   tags:
     - tag: Python
@@ -9,17 +9,31 @@
     - tag: AWS ECS
     - tag: MLflow
 
+- name: NYC Taxi Data Pipeline
+  descr: "Ingested 20M+ NYC taxi trip records into GCS and BigQuery using automated Python pipelines. Reduced BigQuery query costs by 91% through partitioning/clustering. Designed 10+ Kestra workflow orchestrations and provisioned GCP infrastructure with Terraform. Built dbt models for analytics-ready schemas."
+  github: https://github.com/Omega-84/de-zoomcamp
+  tags:
+    - tag: Python
+    - tag: Docker
+    - tag: Terraform
+    - tag: GCP
+    - tag: BigQuery
+    - tag: dbt
+    - tag: Airflow
+    - tag: Kestra
+
 - name: Insurance Cross-Sell Prediction System
-  descr: "Created a machine learning model using LightGBM to identify high-potential customers, improving product sales by 18%. Built classification model achieving 85% AUC score on dataset of 380K customers. Conducted feature engineering on demographic and policy-related variables."
+  descr: "Built LightGBM classification model achieving 85% AUC on 380K customer records to predict vehicle insurance cross-sell potential. Applied SHAP for model interpretation, identifying key predictors. Improved cross-sell conversion rates by 18%."
   github: https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling
   tags:
     - tag: Python
     - tag: LightGBM
     - tag: Scikit-learn
+    - tag: SHAP
     - tag: Pandas
 
 - name: ETL Pipeline Orchestration
-  descr: "Developed a scalable ETL pipeline which scrapes data using Selenium and processes it using Pandas, storing on AWS S3. Automated the entire process using Apache Airflow hosted on AWS EC2. Designed data ingestion workflow with scheduled DAGs for daily data freshness."
+  descr: "Built scalable ETL pipeline using Selenium for web scraping and Pandas for processing, storing 1000+ daily records in AWS S3. Automated with Apache Airflow DAGs on EC2 with error handling and retry logic, achieving 99% pipeline reliability over 3 months."
   github: https://github.com/Omega-84/airflow_data_engg_project
   tags:
     - tag: Python
@@ -29,7 +43,7 @@
     - tag: Selenium
 
 - name: Warehouse Network Supply Chain Optimization
-  descr: "Developed a logistic optimization model in Python using PuLP library to reduce shipping costs by 25% for a 3-warehouse network. Created an interactive UI using Streamlit with data connectors, visualizations, and reports. Built what-if scenario analysis tool for business users."
+  descr: "Developed linear programming model using PuLP to optimize shipping costs across 3-warehouse network, achieving 25% cost reduction. Created interactive Streamlit dashboard with what-if analysis for scenario planning."
   github: https://github.com/Omega-84/Supply-Chain-Optimization
   tags:
     - tag: Python
@@ -38,7 +52,7 @@
     - tag: Optimization
 
 - name: Resume Tailoring Automation System
-  descr: "Built an automated resume tailoring system using Gemini API to customize resumes against job descriptions. Developed keyword extraction and ATS optimization logic to improve resume-JD match rates. Created end-to-end pipeline from JD parsing to PDF generation using Python and LaTeX."
+  descr: "Built automated resume tailoring system using Gemini API to customize resumes against job descriptions with keyword optimization. Created end-to-end pipeline from JD parsing to PDF generation using Python and LaTeX, reducing manual tailoring time by 90%."
   tags:
     - tag: Python
     - tag: Streamlit
@@ -47,16 +61,17 @@
     - tag: LaTeX
 
 - name: Movie Recommendation System
-  descr: "Content-based movie recommendation engine using KNN with cosine similarity. Built with Python and deployed on Streamlit."
+  descr: "Built content-based recommendation engine using cosine similarity on binary-sparse vectors for genre, actor, and director features from 3000+ movie dataset. Deployed Dockerized Streamlit app with CI/CD via GitHub Actions, integrating TMDB API for real-time poster display."
   github: https://github.com/Omega-84/Movie-Recommendation-Project
   tags:
     - tag: Python
     - tag: Streamlit
     - tag: Scikit-learn
-    - tag: SciPy
+    - tag: Docker
+    - tag: TMDB API
 
 - name: Inventory Optimization Forecasting Model
-  descr: "Developed 12-week purchase order forecasting model for Sports E-commerce retail chain to optimize supply chain inventory. Built ensemble time series models using SARIMA for demand forecasting. Conducted EDA revealing 97% seasonal decline and stockout risk across 508 ASINs. Implemented Monte Carlo simulation for stochastic inventory modeling."
+  descr: "Developed 12-week purchase order forecasting model for retail chain with 92% accuracy across 508 ASINs. Implemented Monte Carlo simulation for stochastic inventory modeling, reducing stockouts by 35%. Conducted EDA revealing 97% seasonal decline pattern."
   tags:
     - tag: Python
     - tag: SARIMA
