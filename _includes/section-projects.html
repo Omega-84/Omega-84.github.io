@@ -11,9 +11,43 @@
 
 <div id="projects" class="projects-grid">
 
-  <!-- Healthcare Provider Fraud Detection — FEATURED -->
-  <div class="project-card featured" data-aos="fade-up" data-category="ml">
+  <!-- OtakuLens — Anime Analytics Pipeline — FEATURED -->
+  <div class="project-card featured" data-aos="fade-up" data-category="data">
     <div class="featured-badge">⭐ Featured</div>
+    <div class="project-image">
+      <img src="{{ site.baseurl }}/assets/img/projects/otakulens.png" alt="OtakuLens Anime Analytics Pipeline">
+      <div class="project-overlay">
+        <div class="project-tags-mini">
+          <span>Bruin</span>
+          <span>BigQuery</span>
+          <span>Terraform</span>
+          <span>Streamlit</span>
+          <span>DuckDB</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-content">
+      <h3>OtakuLens — Anime Analytics Pipeline</h3>
+      <p>Batch ELT pipeline ingesting metadata for 500+ anime titles from MyAnimeList via Jikan API into GCS and BigQuery.
+        Multi-layer Bruin transformations with @daily orchestration, semantic recommendations via sentence-transformers,
+        and Bruin AI data analyst (MCP + Claude Code).</p>
+      <div class="project-impact">
+        <span class="impact-chip">🎌 500+ Anime Titles</span>
+        <span class="impact-chip">🚀 Live Dashboard</span>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/Omega-84/mal-data-pipeline" target="_blank" class="btn-project">
+          <i class="devicon-github-original"></i> View Code
+        </a>
+        <a href="https://mal-data-pipeline-zprefllqfdr4htgqq6ggdq.streamlit.app/" target="_blank" class="btn-project">
+          🌐 Live Demo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Healthcare Provider Fraud Detection -->
+  <div class="project-card" data-aos="fade-up" data-category="ml">
     <div class="project-image">
       <img src="{{ site.baseurl }}/assets/img/projects/healthcare-fraud.png" alt="Healthcare Provider Fraud Detection">
       <div class="project-overlay">
@@ -42,7 +76,7 @@
     </div>
   </div>
 
-  <!-- NYC Taxi Data Pipeline — NEW -->
+  <!-- NYC Taxi Data Pipeline -->
   <div class="project-card" data-aos="fade-up" data-category="data">
     <div class="project-image">
       <img src="{{ site.baseurl }}/assets/img/projects/nyc-taxi.png" alt="NYC Taxi Data Pipeline">
@@ -152,6 +186,9 @@
         <a href="https://github.com/Omega-84/Supply-Chain-Optimization" target="_blank" class="btn-project">
           <i class="devicon-github-original"></i> View Code
         </a>
+        <a href="https://supply-chain-optimization-uhyppe8adkzncnuhzu8ugd.streamlit.app/" target="_blank" class="btn-project">
+          🌐 Live Demo
+        </a>
       </div>
     </div>
   </div>
@@ -207,6 +244,9 @@
       <div class="project-links">
         <a href="https://github.com/Omega-84/Movie-Recommendation-Project" target="_blank" class="btn-project">
           <i class="devicon-github-original"></i> View Code
+        </a>
+        <a href="https://omega-84-movie-recommendation-project-app-sblpal.streamlit.app/" target="_blank" class="btn-project">
+          🌐 Live Demo
         </a>
       </div>
     </div>

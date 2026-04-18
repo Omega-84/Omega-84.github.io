@@ -22,6 +22,20 @@
     - tag: Airflow
     - tag: Kestra
 
+- name: OtakuLens — Anime Analytics Pipeline
+  descr: "Batch ELT pipeline ingesting metadata for 500+ anime titles from MyAnimeList via Jikan API into GCS and BigQuery. Orchestrated multi-layer Bruin transformations (staging → intermediate → mart) with @daily schedule provisioned via Terraform. Served via Streamlit with semantic anime recommendations powered by sentence-transformers embeddings and a Bruin AI data analyst (MCP + Claude Code)."
+  github: https://github.com/Omega-84/mal-data-pipeline
+  demo: https://mal-data-pipeline-zprefllqfdr4htgqq6ggdq.streamlit.app/
+  tags:
+    - tag: Python
+    - tag: Bruin
+    - tag: GCP
+    - tag: BigQuery
+    - tag: Terraform
+    - tag: Streamlit
+    - tag: DuckDB
+    - tag: sentence-transformers
+
 - name: Insurance Cross-Sell Prediction System
   descr: "Built LightGBM classification model achieving 85% AUC on 380K customer records to predict vehicle insurance cross-sell potential. Applied SHAP for model interpretation, identifying key predictors. Improved cross-sell conversion rates by 18%."
   github: https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling
