@@ -1,48 +1,45 @@
-<h1 class="title">{{site.contact_title}}</h1>
-<p class="subtitle">{{site.contact_description}}</p>
-
-<div class="contact-icons">
-  {% if site.email and site.email != "" %}
-  <a class="social-link email" aria-label="My E-Mail" href="mailto:{{site.email}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ " /assets/img/solid.svg#envelope" |
-          prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
-
-  {% if site.github_username and site.github_username != "" %}
-  <a class="social-link github" aria-label="My GitHub" target="_blank" rel="noreferrer"
-    href="https://github.com/{{site.github_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ " /assets/img/brands.svg#github" |
-          prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
-
-  {% if site.linkedin_username and site.linkedin_username != "" %}
-  <a class="social-link linkedin" aria-label="My LinkedIn" target="_blank" rel="noreferrer"
-    href="https://www.linkedin.com/in/{{site.linkedin_username}}">
-    <div class="social">
-      <svg class="social-svg" viewBox="0 0 48 48">
-        <use x="12" y="12" width="24" height="24" viewBox="0 0 48 48" xlink:href="{{ "
-          /assets/img/brands.svg#linkedin-in" | prepend: site.baseurl }}"></use>
-      </svg>
-    </div>
-  </a>
-  {% endif %}
+<div class="term-titlebar">
+  <span class="term-dot dot-red"></span>
+  <span class="term-dot dot-amber"></span>
+  <span class="term-dot dot-green"></span>
+  <span class="term-title">contact.sh — 80x24</span>
 </div>
+<div class="term-body">
+  <h1 class="title">./contact.sh --new-message</h1>
+  <p class="subtitle">{{site.contact_description}}</p>
 
-<div class="cta-wrapper">
-  <a href="mailto:{{site.email}}" class="cta-button">
-    <span>Let's Connect</span>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  </a>
+  <form class="contact-form" action="{{ site.formspree_endpoint }}" method="POST">
+    <div>
+      <label for="contact-name">name</label>
+      <input type="text" id="contact-name" name="name" required>
+    </div>
+    <div>
+      <label for="contact-email">email</label>
+      <input type="email" id="contact-email" name="_replyto" required>
+    </div>
+    <div>
+      <label for="contact-message">message</label>
+      <textarea id="contact-message" name="message" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn-term-primary">send_message()</button>
+  </form>
+
+  <div class="contact-fallback">
+    <button type="button" class="contact-email-copy" data-email="{{ site.email }}" aria-label="Copy email address">
+      <span class="contact-email-text">{{ site.email }}</span>
+      <span class="contact-email-copied">copied!</span>
+    </button>
+
+    <div class="contact-icons">
+      {% if site.email and site.email != "" %}
+      <a href="mailto:{{site.email}}" aria-label="My E-Mail">email</a>
+      {% endif %}
+      {% if site.github_username and site.github_username != "" %}
+      <a href="https://github.com/{{site.github_username}}" target="_blank" rel="noreferrer" aria-label="My GitHub">github</a>
+      {% endif %}
+      {% if site.linkedin_username and site.linkedin_username != "" %}
+      <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" rel="noreferrer" aria-label="My LinkedIn">linkedin</a>
+      {% endif %}
+    </div>
+  </div>
 </div>

@@ -1,45 +1,40 @@
-<h1 class="title">{{site.about_me_title}}</h1>
-<div class="about-container">
-  <div class="about-image" data-aos="fade-right">
-    <img src="{{ site.baseurl }}/assets/img/profile.JPG" alt="{{ site.title }}">
-  </div>
-  <div class="about-content" data-aos="fade-left">
-    <p class="description">{{site.about_me_description}}</p>
-  </div>
+<div class="term-titlebar">
+  <span class="term-dot dot-red"></span>
+  <span class="term-dot dot-amber"></span>
+  <span class="term-dot dot-green"></span>
+  <span class="term-title">about.sh — 80x24</span>
 </div>
+<div class="term-body">
+  <h1 class="title">cat about.txt</h1>
+  <p class="subtitle">{{site.about_me_description}}</p>
 
-<!-- Impact Stats Counter Bar -->
-<div class="stats-bar" data-aos="fade-up" data-aos-delay="200">
-  <div class="stat-item">
-    <span class="stat-number" data-target="3">0</span><span class="stat-suffix">+</span>
-    <span class="stat-label">Years Experience</span>
+  <div class="kv-list">
+    <div class="kv-row">
+      <span class="kv-key">years_experience</span>
+      <span class="kv-val">3+</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">projects_shipped</span>
+      <span class="kv-val">8+</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">customer_acq_lift</span>
+      <span class="kv-val">28%</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">default_reduction</span>
+      <span class="kv-val">32%</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">gpa_northeastern</span>
+      <span class="kv-val">3.8/4.0</span>
+    </div>
   </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="8">0</span><span class="stat-suffix">+</span>
-    <span class="stat-label">Projects Shipped</span>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="28">0</span><span class="stat-suffix">%</span>
-    <span class="stat-label">Customer Acq. Lift</span>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-number" data-target="32">0</span><span class="stat-suffix">%</span>
-    <span class="stat-label">Default Reduction</span>
-  </div>
-  <div class="stat-divider"></div>
-  <div class="stat-item">
-    <span class="stat-number stat-gpa" data-target="3.8">3.8</span><span class="stat-suffix">/4.0</span>
-    <span class="stat-label">GPA @ Northeastern</span>
-  </div>
-</div>
 
-<!-- Status Badge -->
-<div class="status-badge-wrapper" data-aos="fade-up" data-aos-delay="400">
-  <div class="status-badge">
-    <span class="status-dot"></span>
-    <span class="status-text">Open to Work, Data Scientist · ML Engineer · Business Analyst</span>
+  <div class="chip-row">
+    <span class="chip">[ open_to_work ]</span>
+    {% if site.certification and site.certification != "" %}
+    <span class="chip chip-amber">[ cert: {{ site.certification }} ]</span>
+    {% endif %}
   </div>
 </div>

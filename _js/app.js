@@ -1,41 +1,14 @@
 setTimeout(function () {
   fadeOutPreloader(document.getElementById('preloader'), 69);
-}, 1500);
+}, 1200);
 
 $(document).ready(function () {
   $(window).on('beforeunload', function () {
     window.scrollTo(0, 0);
   });
 
-  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  particlesJS.load('landing', 'assets/particles.json', function () { });
-
-  // Typing Text
-  var element = document.getElementById('txt-rotate');
-  var toRotate = element.getAttribute('data-rotate');
-  var period = element.getAttribute('data-period');
-  setTimeout(function () {
-    new TxtRotate(element, JSON.parse(toRotate), period);
-  }, 1500);
-
-  // INJECT CSS
-  var css = document.createElement('style');
-  css.type = 'text/css';
-  css.innerHTML = '#txt-rotate > .wrap { border-right: 0.08em solid #666 }';
-  document.body.appendChild(css);
-
-  // Initialize AOS
-  AOS.init({
-    disable: 'mobile',
-    offset: 200,
-    duration: 600,
-    easing: 'ease-in-sine',
-    delay: 100,
-    once: true
-  });
-
-  // Initialize Stats Counter Animation
-  initStatsCounter();
+  // Initialize Contact Email Copy
+  initContactEmailCopy();
 
   // Initialize Project Filters
   initProjectFilters();
@@ -45,9 +18,9 @@ $(document).ready(function () {
 /* Preloader */
 
 function fadeOutPreloader(element, duration) {
-  opacity = 1;
+  var opacity = 1;
 
-  interval = setInterval(function () {
+  var interval = setInterval(function () {
     if (opacity <= 0) {
       element.style.zIndex = 0;
       element.style.opacity = 0;
@@ -68,128 +41,55 @@ function fadeOutPreloader(element, duration) {
   }, duration);
 }
 
-/* Typing Text */
+/* Contact Email Copy Fallback */
 
-var TxtRotate = function (el, toRotate, period) {
-  this.toRotate = toRotate;
-  this.el = el;
-  this.loopNum = 0;
-  this.period = parseInt(period, 10) || 2000;
-  this.txt = '';
-  this.tick();
-  this.isDeleting = false;
-};
+function initContactEmailCopy() {
+  var btn = document.querySelector('.contact-email-copy');
+  if (!btn) return;
 
-TxtRotate.prototype.tick = function () {
-  var i = this.loopNum % this.toRotate.length;
-  var fullTxt = this.toRotate[i];
+  btn.addEventListener('click', function () {
+    var email = btn.getAttribute('data-email');
+    if (!email) return;
 
-  if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
-  this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    var copied = function () {
+      btn.classList.add('copied');
+      setTimeout(function () {
+        btn.classList.remove('copied');
+      }, 1800);
+    };
 
-  var that = this;
-  var delta = 200 - Math.random() * 100;
-
-  if (this.isDeleting) {
-    delta /= 5;
-  }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === '') {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
-  }
-
-  setTimeout(function () {
-    that.tick();
-  }, delta);
-};
-
-/* Stats Counter Animation - using IntersectionObserver for reliability */
-
-function initStatsCounter() {
-  var statsBar = document.querySelector('.stats-bar');
-  if (!statsBar) return;
-
-  // Only animate non-GPA numbers (GPA is pre-filled to avoid decimal issues)
-  var statNumbers = statsBar.querySelectorAll('.stat-number:not(.stat-gpa)');
-  if (!statNumbers.length) return;
-
-  function runCounters() {
-    statNumbers.forEach(function (el) {
-      var target = parseInt(el.getAttribute('data-target'), 10);
-      var duration = 2000;
-      var startTime = null;
-
-      function step(timestamp) {
-        if (!startTime) startTime = timestamp;
-        var progress = Math.min((timestamp - startTime) / duration, 1);
-        // Ease out cubic
-        var easedProgress = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(easedProgress * target);
-
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          el.textContent = target;
-        }
-      }
-
-      requestAnimationFrame(step);
-    });
-  }
-
-  // Use IntersectionObserver for reliable trigger
-  if ('IntersectionObserver' in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          runCounters();
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    observer.observe(statsBar);
-  } else {
-    // Fallback for old browsers
-    runCounters();
-  }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(copied);
+    } else {
+      var textarea = document.createElement('textarea');
+      textarea.value = email;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+      copied();
+    }
+  });
 }
 
 /* Project Filters */
 
 function initProjectFilters() {
   var filterBtns = document.querySelectorAll('.filter-btn');
-  var projectCards = document.querySelectorAll('.project-card');
+  var projectRows = document.querySelectorAll('.file-row');
 
-  if (!filterBtns.length || !projectCards.length) return;
+  if (!filterBtns.length || !projectRows.length) return;
 
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      // Update active button
       filterBtns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
       var filter = btn.getAttribute('data-filter');
 
-      projectCards.forEach(function (card) {
-        var category = card.getAttribute('data-category');
-
-        if (filter === 'all' || category === filter) {
-          card.classList.remove('hidden');
-          card.style.position = '';
-          card.style.visibility = '';
-        } else {
-          card.classList.add('hidden');
-        }
+      projectRows.forEach(function (row) {
+        var category = row.getAttribute('data-category');
+        row.classList.toggle('hidden', !(filter === 'all' || category === filter));
       });
     });
   });

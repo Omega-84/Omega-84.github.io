@@ -1,284 +1,222 @@
 {% if site.show_projects %}
-<h1 class="title"><span>{{site.projects_title}}</span></h1>
-
-<!-- Project Filter Tabs -->
-<div class="project-filters" data-aos="fade-up">
-  <button class="filter-btn active" data-filter="all">All</button>
-  <button class="filter-btn" data-filter="ml">Machine Learning</button>
-  <button class="filter-btn" data-filter="data">Data Engineering</button>
-  <button class="filter-btn" data-filter="analytics">Analytics</button>
+<div class="term-titlebar">
+  <span class="term-dot dot-red"></span>
+  <span class="term-dot dot-amber"></span>
+  <span class="term-dot dot-green"></span>
+  <span class="term-title">projects — 80x24</span>
 </div>
+<div class="term-body">
+  <h1 class="title">ls -la ~/projects</h1>
 
-<div id="projects" class="projects-grid">
-
-  <!-- OtakuLens — Anime Analytics Pipeline — FEATURED -->
-  <div class="project-card featured" data-aos="fade-up" data-category="data">
-    <div class="featured-badge">⭐ Featured</div>
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/otakulens.png" alt="OtakuLens Anime Analytics Pipeline">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>Bruin</span>
-          <span>BigQuery</span>
-          <span>Terraform</span>
-          <span>Streamlit</span>
-          <span>DuckDB</span>
-        </div>
-      </div>
-    </div>
-    <div class="project-content">
-      <h3>OtakuLens — Anime Analytics Pipeline</h3>
-      <p>Batch ELT pipeline ingesting metadata for 500+ anime titles from MyAnimeList via Jikan API into GCS and BigQuery.
-        Multi-layer Bruin transformations with @daily orchestration, semantic recommendations via sentence-transformers,
-        and Bruin AI data analyst (MCP + Claude Code).</p>
-      <div class="project-impact">
-        <span class="impact-chip">🎌 500+ Anime Titles</span>
-        <span class="impact-chip">🚀 Live Dashboard</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/mal-data-pipeline" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-        <a href="https://mal-data-pipeline-zprefllqfdr4htgqq6ggdq.streamlit.app/" target="_blank" class="btn-project">
-          🌐 Live Demo
-        </a>
-      </div>
-    </div>
+  <!-- Project Filter Tabs -->
+  <div class="project-filters">
+    <button class="filter-btn active" data-filter="all">all</button>
+    <button class="filter-btn" data-filter="ml">machine_learning</button>
+    <button class="filter-btn" data-filter="data">data_engineering</button>
+    <button class="filter-btn" data-filter="analytics">analytics</button>
   </div>
 
-  <!-- Healthcare Provider Fraud Detection -->
-  <div class="project-card" data-aos="fade-up" data-category="ml">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/healthcare-fraud.png" alt="Healthcare Provider Fraud Detection">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>XGBoost</span>
-          <span>FastAPI</span>
-          <span>AWS ECS</span>
-          <span>MLflow</span>
-          <span>Docker</span>
-        </div>
-      </div>
-    </div>
-    <div class="project-content">
-      <h3>Healthcare Fraud Detection</h3>
-      <p>End-to-end ML pipeline for Medicare fraud detection across 5,400+ providers. Engineered 44 predictive features,
-        Optuna hyperparameter tuning, FastAPI + Gradio UI, and CI/CD to AWS ECS Fargate.</p>
-      <div class="project-impact">
-        <span class="impact-chip">🎯 95.5% ROC-AUC</span>
-        <span class="impact-chip">🔍 88% Recall</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/Healthcare_Provider_Fraud" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-      </div>
-    </div>
-  </div>
+  <div id="projects" class="projects-listing">
 
-  <!-- NYC Taxi Data Pipeline -->
-  <div class="project-card" data-aos="fade-up" data-category="data">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/nyc-taxi.png" alt="NYC Taxi Data Pipeline">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>GCP</span>
-          <span>Terraform</span>
-          <span>dbt</span>
-          <span>Airflow</span>
-          <span>Kestra</span>
-        </div>
+    <!-- OtakuLens — Anime Analytics Pipeline — FEATURED -->
+    <div class="file-row" data-category="data">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name featured">otakulens.py</span>
+        <span class="file-featured-tag">featured</span>
+      </div>
+      <p class="file-desc">Batch ELT pipeline ingesting metadata for 500+ anime titles from MyAnimeList via Jikan API into GCS and BigQuery. Multi-layer Bruin transformations with @daily orchestration, semantic recommendations via sentence-transformers, and Bruin AI data analyst (MCP + Claude Code).</p>
+      <div class="file-meta-row">
+        <span class="tag-token">Bruin</span>
+        <span class="tag-token">BigQuery</span>
+        <span class="tag-token">Terraform</span>
+        <span class="tag-token">Streamlit</span>
+        <span class="tag-token">DuckDB</span>
+      </div>
+      <div class="file-impact-row">
+        <span>500+ anime titles</span>
+        <span>live dashboard</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/mal-data-pipeline" target="_blank" rel="noreferrer">view_code</a>
+        <a href="https://mal-data-pipeline-zprefllqfdr4htgqq6ggdq.streamlit.app/" target="_blank" rel="noreferrer">live_demo</a>
       </div>
     </div>
-    <div class="project-content">
-      <h3>NYC Taxi Data Pipeline</h3>
-      <p>Ingested 20M+ taxi trip records into GCS and BigQuery. Provisioned GCP infrastructure with Terraform, built 10+
-        Kestra workflow orchestrations, and developed dbt models for analytics-ready schemas.</p>
-      <div class="project-impact">
-        <span class="impact-chip">📊 20M+ Records</span>
-        <span class="impact-chip">💰 91% Query Cost Reduction</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/de-zoomcamp" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <!-- Insurance Cross-Sell -->
-  <div class="project-card" data-aos="fade-up" data-category="ml">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/insurance.jpg" alt="Insurance Cross-Sell Prediction">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>LightGBM</span>
-          <span>SHAP</span>
-          <span>Scikit-learn</span>
-        </div>
+    <!-- Healthcare Provider Fraud Detection -->
+    <div class="file-row" data-category="ml">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name">healthcare_fraud.py</span>
+      </div>
+      <p class="file-desc">End-to-end ML pipeline for Medicare fraud detection across 5,400+ providers. Engineered 44 predictive features, Optuna hyperparameter tuning, FastAPI + Gradio UI, and CI/CD to AWS ECS Fargate.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">XGBoost</span>
+        <span class="tag-token">FastAPI</span>
+        <span class="tag-token">AWS ECS</span>
+        <span class="tag-token">MLflow</span>
+        <span class="tag-token">Docker</span>
+      </div>
+      <div class="file-impact-row">
+        <span>95.5% ROC-AUC</span>
+        <span>88% recall</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/Healthcare_Provider_Fraud" target="_blank" rel="noreferrer">view_code</a>
       </div>
     </div>
-    <div class="project-content">
-      <h3>Insurance Cross-Sell Prediction</h3>
-      <p>LightGBM classification model on 380K customer records with SMOTE for class imbalance. Applied SHAP for model
-        interpretation, identifying key predictors of purchase intent.</p>
-      <div class="project-impact">
-        <span class="impact-chip">📈 85% AUC</span>
-        <span class="impact-chip">🛒 18% Conversion Lift</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <!-- ETL Pipeline -->
-  <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="data">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/etl.jpg" alt="ETL Pipeline Orchestration">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>Airflow</span>
-          <span>AWS S3</span>
-          <span>Selenium</span>
-        </div>
+    <!-- NYC Taxi Data Pipeline -->
+    <div class="file-row" data-category="data">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name">nyc_taxi_pipeline.py</span>
+      </div>
+      <p class="file-desc">Ingested 20M+ taxi trip records into GCS and BigQuery. Provisioned GCP infrastructure with Terraform, built 10+ Kestra workflow orchestrations, and developed dbt models for analytics-ready schemas.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">GCP</span>
+        <span class="tag-token">Terraform</span>
+        <span class="tag-token">dbt</span>
+        <span class="tag-token">Airflow</span>
+        <span class="tag-token">Kestra</span>
+      </div>
+      <div class="file-impact-row">
+        <span>20M+ records</span>
+        <span>91% query cost reduction</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/de-zoomcamp" target="_blank" rel="noreferrer">view_code</a>
       </div>
     </div>
-    <div class="project-content">
-      <h3>ETL Pipeline Orchestration</h3>
-      <p>Scalable ETL pipeline using Selenium + Pandas, storing 1000+ daily records in AWS S3.
-        Automated with Airflow DAGs on EC2 with error handling and retry logic.</p>
-      <div class="project-impact">
-        <span class="impact-chip">✅ 99% Reliability</span>
-        <span class="impact-chip">🔄 Daily Auto-Refresh</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/airflow_data_engg_project" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <!-- Supply Chain Optimization -->
-  <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="analytics">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/supply-chain.jpg" alt="Supply Chain Optimization">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>PuLP</span>
-          <span>Streamlit</span>
-          <span>LP Optimization</span>
-        </div>
+    <!-- Insurance Cross-Sell -->
+    <div class="file-row" data-category="ml">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name">insurance_cross_sell.py</span>
+      </div>
+      <p class="file-desc">LightGBM classification model on 380K customer records with SMOTE for class imbalance. Applied SHAP for model interpretation, identifying key predictors of purchase intent.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">LightGBM</span>
+        <span class="tag-token">SHAP</span>
+        <span class="tag-token">Scikit-learn</span>
+      </div>
+      <div class="file-impact-row">
+        <span>85% AUC</span>
+        <span>18% conversion lift</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/ML-Capstone-Insurance-Cross-Selling" target="_blank" rel="noreferrer">view_code</a>
       </div>
     </div>
-    <div class="project-content">
-      <h3>Supply Chain Optimization</h3>
-      <p>Linear programming model using PuLP to optimize shipping across a 3-warehouse network.
-        Interactive Streamlit dashboard with what-if analysis for scenario planning.</p>
-      <div class="project-impact">
-        <span class="impact-chip">💰 25% Cost Reduction</span>
-        <span class="impact-chip">🏭 3 Warehouses</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/Supply-Chain-Optimization" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-        <a href="https://supply-chain-optimization-uhyppe8adkzncnuhzu8ugd.streamlit.app/" target="_blank" class="btn-project">
-          🌐 Live Demo
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <!-- Resume Tailoring -->
-  <div class="project-card" data-aos="fade-up" data-aos-delay="300" data-category="ml">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/resume.jpg" alt="Resume Tailoring Automation">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>Gemini API</span>
-          <span>LangChain</span>
-          <span>LaTeX</span>
-        </div>
+    <!-- ETL Pipeline -->
+    <div class="file-row" data-category="data">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name">etl_orchestration.py</span>
+      </div>
+      <p class="file-desc">Scalable ETL pipeline using Selenium + Pandas, storing 1000+ daily records in AWS S3. Automated with Airflow DAGs on EC2 with error handling and retry logic.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">Airflow</span>
+        <span class="tag-token">AWS S3</span>
+        <span class="tag-token">Selenium</span>
+      </div>
+      <div class="file-impact-row">
+        <span>99% reliability</span>
+        <span>daily auto-refresh</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/airflow_data_engg_project" target="_blank" rel="noreferrer">view_code</a>
       </div>
     </div>
-    <div class="project-content">
-      <h3>Resume Tailoring Automation</h3>
-      <p>Automated resume customization using Gemini API with keyword extraction and ATS optimization.
-        End-to-end pipeline from JD parsing to PDF generation via LaTeX.</p>
-      <div class="project-impact">
-        <span class="impact-chip">⚡ 90% Time Saved</span>
-        <span class="impact-chip">🤖 AI-Powered</span>
-      </div>
-      <div class="project-links">
-        <span class="btn-project btn-private">
-          <i class="devicon-github-original"></i> Private
-        </span>
-      </div>
-    </div>
-  </div>
 
-  <!-- Movie Recommendation -->
-  <div class="project-card" data-aos="fade-up" data-aos-delay="400" data-category="ml">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/movie.jpg" alt="Movie Recommendation System">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>Scikit-learn</span>
-          <span>Docker</span>
-          <span>TMDB API</span>
-        </div>
+    <!-- Supply Chain Optimization -->
+    <div class="file-row" data-category="analytics">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name">supply_chain_optimizer.py</span>
+      </div>
+      <p class="file-desc">Linear programming model using PuLP to optimize shipping across a 3-warehouse network. Interactive Streamlit dashboard with what-if analysis for scenario planning.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">PuLP</span>
+        <span class="tag-token">Streamlit</span>
+        <span class="tag-token">LP Optimization</span>
+      </div>
+      <div class="file-impact-row">
+        <span>25% cost reduction</span>
+        <span>3 warehouses</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/Supply-Chain-Optimization" target="_blank" rel="noreferrer">view_code</a>
+        <a href="https://supply-chain-optimization-uhyppe8adkzncnuhzu8ugd.streamlit.app/" target="_blank" rel="noreferrer">live_demo</a>
       </div>
     </div>
-    <div class="project-content">
-      <h3>Movie Recommendation System</h3>
-      <p>Content-based engine using KNN with cosine similarity on sparse feature vectors from 3000+ movies.
-        Dockerized Streamlit app with CI/CD via GitHub Actions and TMDB API integration.</p>
-      <div class="project-impact">
-        <span class="impact-chip">🎬 3000+ Movies</span>
-        <span class="impact-chip">🚀 CI/CD Deployed</span>
-      </div>
-      <div class="project-links">
-        <a href="https://github.com/Omega-84/Movie-Recommendation-Project" target="_blank" class="btn-project">
-          <i class="devicon-github-original"></i> View Code
-        </a>
-        <a href="https://omega-84-movie-recommendation-project-app-sblpal.streamlit.app/" target="_blank" class="btn-project">
-          🌐 Live Demo
-        </a>
-      </div>
-    </div>
-  </div>
 
-  <!-- Inventory Optimization -->
-  <div class="project-card" data-aos="fade-up" data-aos-delay="500" data-category="analytics">
-    <div class="project-image">
-      <img src="{{ site.baseurl }}/assets/img/projects/inventory.jpg" alt="Inventory Optimization">
-      <div class="project-overlay">
-        <div class="project-tags-mini">
-          <span>SARIMA</span>
-          <span>Monte Carlo</span>
-          <span>Pandas</span>
-        </div>
+    <!-- Resume Tailoring -->
+    <div class="file-row" data-category="ml">
+      <div class="file-row-head">
+        <span class="file-perms">-rw-------</span>
+        <span class="file-name">resume_tailoring.py</span>
+      </div>
+      <p class="file-desc">Automated resume customization using Gemini API with keyword extraction and ATS optimization. End-to-end pipeline from JD parsing to PDF generation via LaTeX.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">Gemini API</span>
+        <span class="tag-token">LangChain</span>
+        <span class="tag-token">LaTeX</span>
+      </div>
+      <div class="file-impact-row">
+        <span>90% time saved</span>
+        <span>AI-powered</span>
+      </div>
+      <div class="file-links">
+        <span class="file-link-private">private</span>
       </div>
     </div>
-    <div class="project-content">
-      <h3>Inventory Optimization Forecasting</h3>
-      <p>12-week purchase order forecasting model for retail using ensemble SARIMA and Monte Carlo
-        simulation. Risk-based reorder points across 508 ASINs with statistical validation.</p>
-      <div class="project-impact">
-        <span class="impact-chip">🎯 92% Accuracy</span>
-        <span class="impact-chip">📉 35% Fewer Stockouts</span>
-      </div>
-      <div class="project-links">
-        <span class="btn-project btn-private">
-          <i class="devicon-github-original"></i> Private
-        </span>
-      </div>
-    </div>
-  </div>
 
+    <!-- Movie Recommendation -->
+    <div class="file-row" data-category="ml">
+      <div class="file-row-head">
+        <span class="file-perms">-rwxr-xr-x</span>
+        <span class="file-name">movie_recommender.py</span>
+      </div>
+      <p class="file-desc">Content-based engine using KNN with cosine similarity on sparse feature vectors from 3000+ movies. Dockerized Streamlit app with CI/CD via GitHub Actions and TMDB API integration.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">Scikit-learn</span>
+        <span class="tag-token">Docker</span>
+        <span class="tag-token">TMDB API</span>
+      </div>
+      <div class="file-impact-row">
+        <span>3000+ movies</span>
+        <span>CI/CD deployed</span>
+      </div>
+      <div class="file-links">
+        <a href="https://github.com/Omega-84/Movie-Recommendation-Project" target="_blank" rel="noreferrer">view_code</a>
+        <a href="https://omega-84-movie-recommendation-project-app-sblpal.streamlit.app/" target="_blank" rel="noreferrer">live_demo</a>
+      </div>
+    </div>
+
+    <!-- Inventory Optimization -->
+    <div class="file-row" data-category="analytics">
+      <div class="file-row-head">
+        <span class="file-perms">-rw-------</span>
+        <span class="file-name">inventory_forecasting.py</span>
+      </div>
+      <p class="file-desc">12-week purchase order forecasting model for retail using ensemble SARIMA and Monte Carlo simulation. Risk-based reorder points across 508 ASINs with statistical validation.</p>
+      <div class="file-meta-row">
+        <span class="tag-token">SARIMA</span>
+        <span class="tag-token">Monte Carlo</span>
+        <span class="tag-token">Pandas</span>
+      </div>
+      <div class="file-impact-row">
+        <span>92% accuracy</span>
+        <span>35% fewer stockouts</span>
+      </div>
+      <div class="file-links">
+        <span class="file-link-private">private</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 {% endif %}

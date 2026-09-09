@@ -1,8 +1,11 @@
 _site
 .sass-cache
 node_modules
+vendor
+.bundle
 .DS_STORE
 .jekyll-cache
 .env
 .prettierignore
 .jekyll-metadata
+.superpowers

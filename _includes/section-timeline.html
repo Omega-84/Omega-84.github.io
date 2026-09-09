@@ -1,83 +1,72 @@
-<h1 class="title">{{site.timeline_title}}</h1>
-<p class="subtitle">
-  For more information, have a look at my
-  <a class="highlight-link" href="{{site.cv_download_link}}" target="_blank" rel="noreferrer">
-    curriculum vitae
-  </a>.
-</p>
+<div class="term-titlebar">
+  <span class="term-dot dot-red"></span>
+  <span class="term-dot dot-amber"></span>
+  <span class="term-dot dot-green"></span>
+  <span class="term-title">experience.log — 80x24</span>
+</div>
+<div class="term-body">
+  <h1 class="title">git log --oneline --graph</h1>
+  <p class="subtitle">
+    Full history in the
+    <a href="{{site.cv_download_link}}" target="_blank" rel="noreferrer">curriculum vitae</a>.
+  </p>
 
-<div class="timeline-wrapper">
-  <ul class="timeline">
-    {% assign delay = 0 %}
-    {% for event in site.data.timeline %}
-    {% if event.timeline-side == 'left' %}
-    <li>
-      <div class="direction-l">
-        <div class="flag-wrapper">
-          <span class="hexagon"></span>
-          <span class="flag neumorphism-button" data-aos="fade-right" data-aos-delay="{{ delay }}" data-aos-once="true">
-            <a href="{{event.title-url}}" target="_blank" rel="noreferrer">
-              <span>{{event.title}}</span>
-            </a>
-          </span>
-          <span class="time-wrapper" data-aos="fade-right" data-aos-delay="{{ delay | plus: 50 }}" data-aos-once="true">
-            <span class="time neumorphism-card">{{event.date}}</span>
-          </span>
-        </div>
-        <div class="desc neumorphism-card" data-aos="fade-right" data-aos-delay="{{ delay | plus: 100 }}"
-          data-aos-once="true">
-          {% if event.logo %}
-          <div class="timeline-logo">
-            <img src="{{ site.baseurl }}/assets/img/logos/{{ event.logo }}" alt="{{ event.title }} logo">
-          </div>
-          {% endif %}
-          <div class="timeline-desc-text">{{event.subtitle}}</div>
-          {% if event.tags %}
-          <div class="tag-wrapper">
-            {% for tag in event.tags %}
-            <span class="tag neumorphism-card">{{tag.tag}}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
-      </div>
-    </li>
-    {% endif %}
+  {% assign experience = site.data.timeline | where: "type", "experience" %}
+  {% assign education = site.data.timeline | where: "type", "education" %}
 
-    {% if event.timeline-side == 'right' %}
-    <li>
-      <div class="direction-r">
-        <div class="flag-wrapper">
-          <span class="hexagon"></span>
-          <span class="flag neumorphism-button" data-aos="fade-left" data-aos-delay="{{ delay }}" data-aos-once="true">
-            <a href="{{event.title-url}}" target="_blank" rel="noreferrer">
-              <span>{{event.title}}</span>
-            </a>
-          </span>
-          <span class="time-wrapper" data-aos="fade-left" data-aos-delay="{{ delay | plus: 50 }}" data-aos-once="true">
-            <span class="time neumorphism-card">{{event.date}}</span>
-          </span>
-        </div>
-        <div class="desc neumorphism-card" data-aos="fade-left" data-aos-delay="{{ delay | plus: 100 }}"
-          data-aos-once="true">
-          {% if event.logo %}
-          <div class="timeline-logo">
-            <img src="{{ site.baseurl }}/assets/img/logos/{{ event.logo }}" alt="{{ event.title }} logo">
-          </div>
-          {% endif %}
-          <div class="timeline-desc-text">{{event.subtitle}}</div>
-          {% if event.tags %}
-          <div class="tag-wrapper">
-            {% for tag in event.tags %}
-            <span class="tag neumorphism-card">{{tag.tag}}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
+  <div class="commit-graph">
+    {% for event in experience %}
+    <div class="commit">
+      <div class="graph-rail">
+        <span class="graph-line"></span>
+        <span class="graph-node node-green"></span>
       </div>
-    </li>
-    {% endif %}
-    {% assign delay = delay | plus: 150 %}
+      <div class="commit-content">
+        <div class="commit-line">
+          <span class="commit-hash">{{ event.title | slugify | slice: 0, 7 }}</span>
+          <span class="commit-subject">
+            <a href="{{event.title-url}}" target="_blank" rel="noreferrer">{{event.subtitle}} @ {{event.title}}</a>
+          </span>
+          <span class="commit-date">{{event.date}}</span>
+        </div>
+        {% if event.tags %}
+        <div class="commit-tags">
+          {% for tag in event.tags %}
+          <span class="tag-token">{{tag.tag}}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
     {% endfor %}
-  </ul>
+
+    <div class="commit branch-divider">
+      <div class="graph-rail">
+        <svg class="branch-curve" viewBox="0 0 52 56" preserveAspectRatio="none">
+          <path d="M15,0 C15,28 37,28 37,56" />
+        </svg>
+      </div>
+      <div class="commit-content">
+        <span class="branch-label">education</span>
+      </div>
+    </div>
+
+    {% for event in education %}
+    <div class="commit">
+      <div class="graph-rail">
+        <span class="graph-line line-branch"></span>
+        <span class="graph-node node-amber lane-branch"></span>
+      </div>
+      <div class="commit-content">
+        <div class="commit-line">
+          <span class="commit-hash">{{ event.title | slugify | slice: 0, 7 }}</span>
+          <span class="commit-subject">
+            <a href="{{event.title-url}}" target="_blank" rel="noreferrer">{{event.subtitle}} @ {{event.title}}</a>
+          </span>
+          <span class="commit-date">{{event.date}}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>

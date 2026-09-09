@@ -9,58 +9,50 @@
   <title>{{ site.title }}</title>
   <meta name="description" content="{{ site.description }}">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ " /assets/favicon/apple-touch-icon.png" | prepend: site.baseurl
-    }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ " /assets/favicon/favicon-32x32.png" | prepend: site.baseurl
-    }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ " /assets/favicon/favicon-16x16.png" | prepend: site.baseurl
-    }}">
-  <link rel="manifest" href="{{ " /assets/favicon/site.webmanifest" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon/favicon-32x32.png" | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon/favicon-16x16.png" | prepend: site.baseurl }}">
+  <link rel="manifest" href="{{ "/assets/favicon/site.webmanifest" | prepend: site.baseurl }}">
 
-  <!-- DevIcons CDN for skill icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  {% seo %}
 
-  <link rel="stylesheet" href="{{ " /assets/css/main.min.css" | prepend: site.baseurl }}">
-  <link rel="stylesheet" href="{{ " /assets/css/vendors.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/main.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/assets/css/vendors.min.css" | prepend: site.baseurl }}">
 
-  <script src="{{ " /assets/js/vendors.min.js" | prepend: site.baseurl }}"></script>
-  <script src="{{ " /assets/js/app.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/assets/js/vendors.min.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/assets/js/app.min.js" | prepend: site.baseurl }}"></script>
 </head>
 
 <body>
+  <a href="#about" class="skip-link">Skip to content</a>
   {% include navbar.html %}
   <div id="preloader">
-    <div class="load">
-      <hr />
-      <hr />
-      <hr />
-      <hr />
-    </div>
+    <div class="load">$ booting_portfolio<span class="cursor-blink"></span></div>
   </div>
   {% include landing-page.html %}
   <div class="layout">
     {%if site.show_aboutme_card %}
-    <section id="about" class="card neumorphism-card-big">
+    <section id="about" class="term-window">
       {% include section-aboutme.html %}
     </section>
     {% endif %}
     {%if site.show_skills_card %}
-    <section id="skills-section" class="card neumorphism-card-big">
+    <section id="skills-section" class="term-window">
       {% include section-skills.html %}
     </section>
     {% endif %}
     {%if site.show_timeline_card %}
-    <section id="timeline" class="card neumorphism-card-big">
+    <section id="timeline" class="term-window">
       {% include section-timeline.html %}
     </section>
     {% endif %}
     {%if site.show_projects_card %}
-    <section id="projects-section" class="card neumorphism-card-big">
+    <section id="projects-section" class="term-window">
       {% include section-projects.html %}
     </section>
     {% endif %}
     {%if site.show_contact_card %}
-    <section id="contact" class="card neumorphism-card-big">
+    <section id="contact" class="term-window">
       {% include section-contact.html %}
     </section>
     {% endif %}
@@ -75,28 +67,30 @@
 
   {% include footer.html %}
 
-  <!-- Navbar Script -->
+  <!-- Page Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const navbar = document.querySelector('.navbar');
       const toggle = document.querySelector('.navbar-toggle');
       const menu = document.querySelector('.navbar-menu');
-      const scrollThreshold = 100; // Show navbar after scrolling 100px
 
-      // Hide navbar initially
-      navbar.classList.add('navbar-hidden');
+      // Navbar (with Contact link) is visible from page load so it's
+      // reachable within the first seconds, not just after scrolling.
+      navbar.classList.add('navbar-visible');
 
-      // Show/hide navbar on scroll
+      // Hide navbar only while actively scrolling down past the hero;
+      // always show it again when scrolling up.
+      const scrollThreshold = 100;
       let lastScroll = 0;
       window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
 
-        if (currentScroll > scrollThreshold) {
-          navbar.classList.remove('navbar-hidden');
-          navbar.classList.add('navbar-visible');
-        } else {
+        if (currentScroll > scrollThreshold && currentScroll > lastScroll) {
           navbar.classList.remove('navbar-visible');
           navbar.classList.add('navbar-hidden');
+        } else {
+          navbar.classList.remove('navbar-hidden');
+          navbar.classList.add('navbar-visible');
         }
 
         lastScroll = currentScroll;
@@ -105,13 +99,14 @@
       // Mobile menu toggle
       if (toggle && menu) {
         toggle.addEventListener('click', () => {
-          menu.classList.toggle('active');
+          const isOpen = menu.classList.toggle('active');
+          toggle.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close menu when clicking a link
         menu.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
           });
         });
       }
@@ -176,27 +171,22 @@
         });
       }
 
-      // Custom Cursor Glow Effect
-      const cursorGlow = document.createElement('div');
-      cursorGlow.className = 'cursor-glow';
-      document.body.appendChild(cursorGlow);
+      // Reveal terminal windows as they scroll into view
+      const windows = document.querySelectorAll('.term-window');
+      if ('IntersectionObserver' in window && windows.length) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
 
-      let mouseX = 0, mouseY = 0;
-      let glowX = 0, glowY = 0;
-
-      document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      function animateCursor() {
-        glowX += (mouseX - glowX) * 0.1;
-        glowY += (mouseY - glowY) * 0.1;
-        cursorGlow.style.left = glowX + 'px';
-        cursorGlow.style.top = glowY + 'px';
-        requestAnimationFrame(animateCursor);
+        windows.forEach(w => observer.observe(w));
+      } else {
+        windows.forEach(w => w.classList.add('in-view'));
       }
-      animateCursor();
     });
   </script>
 </body>
