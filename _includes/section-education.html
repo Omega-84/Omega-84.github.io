@@ -1,0 +1,28 @@
+<div class="panel-body">
+  <h2 class="title">Education</h2>
+  <p class="subtitle">
+    The branch off my experience timeline.
+    <button type="button" class="branch-link" data-open="experience">&larr; Back to experience</button>
+  </p>
+
+  {% assign education = site.data.timeline | where: "type", "education" %}
+
+  <div class="commit-graph">
+    {% for event in education %}
+    <div class="commit">
+      <div class="graph-rail">
+        <span class="graph-line line-branch"></span>
+        <span class="graph-node node-sage lane-branch"></span>
+      </div>
+      <div class="commit-content">
+        <div class="commit-line">
+          <span class="commit-subject">
+            <a href="{{event.title-url}}" target="_blank" rel="noreferrer">{{event.subtitle}} @ {{event.title}}</a>
+          </span>
+          <span class="commit-date">{{event.date}}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

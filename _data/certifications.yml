@@ -1,0 +1,13 @@
+- title: "Microsoft Certified: Fabric Data Engineer Associate (DP-700)"
+  name: Fabric Data Engineer Associate
+  short: Fabric Data Engineer · DP-700
+  code: DP-700
+  blurb: Data engineering on Microsoft Fabric, covering lakehouses, pipelines, Spark and warehouse workloads.
+  applied: Crypto Market Analytics Pipeline, a 7-stage Fabric pipeline with dbt medallion layers.
+
+- title: "Microsoft Certified: Azure AI Apps and Agents Developer Associate (AI-103)"
+  name: Azure AI Apps and Agents Developer Associate
+  short: Azure AI Apps & Agents · AI-103
+  code: AI-103
+  blurb: Building AI applications and agents on Azure.
+  applied: Humanitarians AI, where I built guardrailed LLM tutors and CrewAI multi-agent pipelines with Gemini tool calling.

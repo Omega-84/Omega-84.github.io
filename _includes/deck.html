@@ -1,0 +1,35 @@
+{% comment %} The swipe deck. Not currently on the page; include it to bring it back. {% endcomment %}
+<div class="deck-wrap">
+  <div class="deck" id="deck" tabindex="0" aria-label="Credential cards. Use arrow keys to swipe.">
+    {% for card in site.data.cards %}
+    <article class="deck-card accent-{{ card.accent }}" data-title="{{ card.kicker }}">
+      <p class="card-kicker">{{ card.kicker }}</p>
+      <p class="card-big{% if card.big.size > 9 %} card-big-long{% endif %}">{{ card.big }}</p>
+      <p class="card-label">{{ card.label }}</p>
+      <p class="card-story">{{ card.story }}</p>
+      <div class="card-tags">
+        {% for tag in card.tags %}<span>{{ tag }}</span>{% endfor %}
+      </div>
+    </article>
+    {% endfor %}
+
+    <article class="deck-card deck-finale accent-peach" data-title="Contact" data-final="true">
+      <p class="card-kicker">You made it</p>
+      <p class="card-big">Let's talk.</p>
+      <p class="card-story">Open to Data Scientist and Data Engineer roles. Based in Boston, open to relocation.</p>
+      <div class="finale-actions">
+        <a class="btn-primary" href="mailto:{{ site.email }}" data-track="contact_click" data-track-label="email">Email me</a>
+        <a class="btn-ghost" href="https://www.linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noreferrer" data-track="contact_click" data-track-label="linkedin">LinkedIn</a>
+        <a class="btn-ghost" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noreferrer" data-track="contact_click" data-track-label="github">GitHub</a>
+        <a class="btn-ghost" href="{{ site.cv_download_link }}" target="_blank" rel="noreferrer" data-track="resume_click">Resume</a>
+      </div>
+      <button type="button" class="replay-btn" id="deck-replay">Replay the deck</button>
+    </article>
+  </div>
+
+  <div class="deck-controls" id="deck-controls">
+    <button type="button" class="deck-btn deck-skip" id="deck-skip" aria-label="Skip card">&larr; Skip</button>
+    <div class="deck-progress" id="deck-progress" aria-live="polite"></div>
+    <button type="button" class="deck-btn deck-like" id="deck-like" aria-label="Impressed">Impressed &rarr;</button>
+  </div>
+</div>

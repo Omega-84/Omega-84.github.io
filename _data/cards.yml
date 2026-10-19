@@ -1,0 +1,69 @@
+- kicker: The headline
+  big: "$1.2M → $11M"
+  label: ARR in 3 months
+  story: As the sole analytics member, I ran the targeting models, policy tuning and A/B tests that scaled a financial product.
+  accent: peach
+  tags: [Paisabazaar, A/B testing, Growth analytics]
+
+- kicker: Certifications
+  big: "2x"
+  label: Microsoft certifications
+  story: Fabric Data Engineer Associate (DP-700) and Azure AI Apps and Agents Developer Associate (AI-103). More on the way.
+  accent: sky
+  tags: [DP-700, AI-103]
+
+- kicker: Risk and growth
+  big: "-32%"
+  label: loan defaults
+  story: A CatBoost risk model on payment behavior, plus an XGBoost lead-scoring model that lifted customer acquisition 28% over baseline.
+  accent: sky
+  tags: [CatBoost, XGBoost, 500K samples]
+
+- kicker: Production ML
+  big: "95.5%"
+  label: ROC-AUC fraud detection
+  story: Classified 5,400+ Medicare providers, flagged $85M in potential fraud, and shipped it on AWS ECS Fargate with FastAPI, MLflow and CI/CD.
+  accent: lavender
+  tags: [XGBoost, FastAPI, Docker, AWS]
+
+- kicker: Right now
+  big: "-60%"
+  label: AI tutor hallucinations
+  story: As an AI Engineer at Humanitarians AI, five guardrail patterns across three knowledge bases, plus a GPU ingestion pipeline that sped the launch up about 40%.
+  accent: peach
+  tags: [LLM guardrails, RAG, GPU pipelines]
+
+- kicker: Agents
+  big: "~80%"
+  label: less dataset research time
+  story: A CrewAI multi-agent pipeline with Gemini tool calling that finds and categorizes public MRI, CT and radiation oncology datasets.
+  accent: sky
+  tags: [CrewAI, Gemini, Pydantic]
+
+- kicker: Data engineering
+  big: "< 15 min"
+  label: 7-stage Fabric pipeline
+  story: Daily ingestion of 2,000+ cryptocurrencies and 1,100+ exchanges, with idempotency fixes that ended up to 4x row duplication.
+  accent: lavender
+  tags: [Microsoft Fabric, dbt, Azure Functions]
+
+- kicker: Scale
+  big: "30M+"
+  label: records a day
+  story: Unified TransUnion, Equifax and Experian data, cut server load 37% with a PySpark data mart, and cut memory use 55% with Parquet.
+  accent: peach
+  tags: [PySpark, Hive, Parquet]
+
+- kicker: Education
+  big: "3.8"
+  label: GPA, MS Business Analytics
+  story: Northeastern University. Also taught R, LLM integration and advanced SQL to 90+ graduate students as a teaching assistant.
+  accent: lavender
+  tags: [Northeastern, Teaching]
+
+- kicker: The toolkit
+  big: "Python + SQL"
+  label: and the cloud to ship it
+  story: Scikit-learn, PyTorch, LangChain, PySpark, dbt, Airflow, Snowflake, AWS, GCP, Azure, Microsoft Fabric, Microsoft Foundry, Tableau and Power BI.
+  accent: peach
+  tags: [Python, SQL, Cloud]

@@ -1,0 +1,22 @@
+<div class="panel-body">
+  <h2 class="title">Certifications</h2>
+  <p class="lead">Two Microsoft credentials so far, and both are backed by shipped work.</p>
+
+  <div class="cert-list">
+    {% for cert in site.data.certifications %}
+    <article class="cert-card">
+      <p class="cert-issuer">Microsoft Certified</p>
+      <h3 class="cert-name">{{ cert.name }}</h3>
+      <p class="cert-code">{{ cert.code }}</p>
+      <p class="cert-blurb">{{ cert.blurb }}</p>
+      <p class="cert-applied"><b>Applied in</b> {{ cert.applied }}</p>
+    </article>
+    {% endfor %}
+
+    <article class="cert-card cert-soon">
+      <p class="cert-issuer">In progress</p>
+      <h3 class="cert-name">More coming soon</h3>
+      <p class="cert-blurb">I'm working on additional certifications right now. Check back, or get in touch to hear what's next.</p>
+    </article>
+  </div>
+</div>

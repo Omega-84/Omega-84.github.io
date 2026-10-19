@@ -2,7 +2,7 @@
 
 # GENERAL SITE SETTINGS
 title: Varun Nayyar
-description: Data Scientist | Business Analyst | Data Engineer
+description: Data Scientist and Data Engineer
 # baseurl: Set to "" since your repo is Omega-84.github.io
 baseurl: ""
 url: "https://omega-84.github.io"
@@ -15,9 +15,9 @@ github_username: Omega-84
 linkedin_username: varun-nayyar-ml
 
 # ABOUT ME SECTION
+summary: I build ML models and data pipelines that move business numbers. Today an AI Engineer at Humanitarians AI; before that a Data Scientist at Paisabazaar, where my models helped scale a credit product from $1.2M to $11M ARR.
 show_aboutme_card: true
-about_me_description: Data Scientist with 2+ years of experience shipping ML models, data pipelines, and analytics solutions that drive real business impact. At Paisabazaar (India's largest credit marketplace), I built XGBoost and CatBoost models on 500K+ samples that increased customer acquisition by 28% and reduced loan defaults by 32%, and helped scale a financial product from $1.2M to $11M in 3 months. Most recently at Humanitarians AI, I engineered a GPU-accelerated ingestion pipeline that accelerated an AI tutor's launch by ~40% and cut hallucinations by ~60% through guardrail design. MS in Business Analytics from Northeastern University (GPA 3.8).
-certification: "Microsoft Certified: Fabric Data Engineer Associate (DP-700)"
+about_me_description: Data Scientist with 2+ years of experience shipping ML models, data pipelines, and analytics solutions that drive real business impact. At Paisabazaar (India's largest credit marketplace), I built XGBoost and CatBoost models on 500K+ samples that increased customer acquisition by 28% and reduced loan defaults by 32%, and helped scale a financial product from $1.2M to $11M in 3 months. Currently an AI Engineer at Humanitarians AI, I engineered a GPU-accelerated ingestion pipeline that accelerated an AI tutor's launch by ~40% and cut hallucinations by ~60% through guardrail design. MS in Business Analytics from Northeastern University (GPA 3.8).
 
 # SKILLS SECTION
 show_skills_card: true
@@ -32,7 +32,7 @@ show_projects: true
 
 # CONTACT SECTION
 show_contact_card: true
-contact_description: MS Business Analytics from Northeastern (GPA 3.8) with 2+ years at Paisabazaar building ML models on 500K+ samples and scaling products to $11M. Actively seeking Data Scientist, ML Engineer, and Business Analyst roles. Based in Boston, MA - open to relocation.
+contact_description: MS Business Analytics from Northeastern (GPA 3.8) with 2+ years at Paisabazaar building ML models on 500K+ samples and scaling products to $11M. Actively seeking Data Scientist and Data Engineer roles. Based in Boston, MA - open to relocation.
 # Sign up free at https://formspree.io, create a form, and paste its endpoint below
 # (looks like https://formspree.io/f/xxxxxxxx). Until then the form will not submit.
 formspree_endpoint: "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID"

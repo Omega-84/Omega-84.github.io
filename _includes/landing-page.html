@@ -1,36 +1,30 @@
-<div id="landing">
-  <div class="term-window hero-window in-view">
-    <div class="term-titlebar">
-      <span class="term-dot dot-red"></span>
-      <span class="term-dot dot-amber"></span>
-      <span class="term-dot dot-green"></span>
-      <span class="term-title">visitor@portfolio: ~</span>
+<div class="profile">
+  <img class="profile-photo" src="{{ "/assets/img/profile-800.jpg" | prepend: site.baseurl }}" alt="Varun Nayyar" width="220" height="220">
+  <p class="profile-eyebrow">Data Scientist &amp; Data Engineer</p>
+  <h1 class="profile-name">Varun Nayyar</h1>
+  <p class="profile-summary">{{ site.summary }}</p>
+
+  <div class="profile-figures">
+    {% for fig in site.data.figures %}
+    <div class="figure">
+      <span class="figure-value">{{ fig.value }}</span>
+      <span class="figure-label">{{ fig.label }}</span>
     </div>
-    <div class="hero-body">
-      <p class="hero-line"><span class="prompt-sign">$</span> whoami</p>
-      <h1 class="hero-name">varun<span>_</span>nayyar</h1>
+    {% endfor %}
+  </div>
 
-      <p class="hero-line"><span class="prompt-sign">$</span> cat headline.txt</p>
-      <p class="hero-role">Data Scientist &middot; ML Engineer</p>
-      <p class="hero-stat-line">$1.2M <span class="stat-arrow">&rarr;</span> $11M ARR with ML<span id="hero-cursor" class="cursor-blink"></span></p>
-
-      <div class="hero-cta-row">
-        <a href="#contact" class="btn-term-primary">./get_in_touch.sh</a>
-        <a href="#projects-section" class="btn-term-secondary">view_projects</a>
-        <a href="{{site.cv_download_link}}" target="_blank" rel="noreferrer" class="btn-term-secondary">resume</a>
-      </div>
-
-      <div class="hero-links">
-        {% if site.email and site.email != "" %}
-        <a href="mailto:{{site.email}}" aria-label="My E-Mail">email</a>
-        {% endif %}
-        {% if site.github_username and site.github_username != "" %}
-        <a href="https://github.com/{{site.github_username}}" target="_blank" rel="noreferrer" aria-label="My GitHub">github</a>
-        {% endif %}
-        {% if site.linkedin_username and site.linkedin_username != "" %}
-        <a href="https://www.linkedin.com/in/{{site.linkedin_username}}" target="_blank" rel="noreferrer" aria-label="My LinkedIn">linkedin</a>
-        {% endif %}
-      </div>
+  <div class="profile-certs">
+    {% for cert in site.data.certifications %}
+    <div class="profile-cert">
+      <span class="profile-cert-issuer">Microsoft Certified</span>
+      <span class="profile-cert-name">{{ cert.name }}</span>
+      <span class="profile-cert-code">{{ cert.code }}</span>
     </div>
+    {% endfor %}
+  </div>
+
+  <div class="profile-cta">
+    <a class="btn-primary" href="#contact" data-track="contact_click" data-track-label="profile_get_in_touch">Get in touch</a>
+    <a class="btn-ghost" href="{{ site.cv_download_link }}" target="_blank" rel="noreferrer" data-track="resume_click">Resume</a>
   </div>
 </div>

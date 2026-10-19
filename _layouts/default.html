@@ -21,42 +21,16 @@
 
   <script src="{{ "/assets/js/vendors.min.js" | prepend: site.baseurl }}"></script>
   <script src="{{ "/assets/js/app.min.js" | prepend: site.baseurl }}"></script>
+  <noscript><style>.frame-content{display:block !important}.frame-cover{display:none !important}.world-path,.hud{display:none !important}</style></noscript>
 </head>
 
 <body>
-  <a href="#about" class="skip-link">Skip to content</a>
+  <a href="#viewer" class="skip-link">Skip to content</a>
   {% include navbar.html %}
   <div id="preloader">
-    <div class="load">$ booting_portfolio<span class="cursor-blink"></span></div>
+    <div class="load"><span class="load-dot"></span></div>
   </div>
-  {% include landing-page.html %}
-  <div class="layout">
-    {%if site.show_aboutme_card %}
-    <section id="about" class="term-window">
-      {% include section-aboutme.html %}
-    </section>
-    {% endif %}
-    {%if site.show_skills_card %}
-    <section id="skills-section" class="term-window">
-      {% include section-skills.html %}
-    </section>
-    {% endif %}
-    {%if site.show_timeline_card %}
-    <section id="timeline" class="term-window">
-      {% include section-timeline.html %}
-    </section>
-    {% endif %}
-    {%if site.show_projects_card %}
-    <section id="projects-section" class="term-window">
-      {% include section-projects.html %}
-    </section>
-    {% endif %}
-    {%if site.show_contact_card %}
-    <section id="contact" class="term-window">
-      {% include section-contact.html %}
-    </section>
-    {% endif %}
-  </div>
+  {% include world.html %}
 
   <!-- Back to Top Button -->
   <button class="back-to-top" aria-label="Back to top">
@@ -74,27 +48,9 @@
       const toggle = document.querySelector('.navbar-toggle');
       const menu = document.querySelector('.navbar-menu');
 
-      // Navbar (with Contact link) is visible from page load so it's
-      // reachable within the first seconds, not just after scrolling.
+      // The navbar (with the Contact pill) stays visible at all times so
+      // reaching out is always one click away.
       navbar.classList.add('navbar-visible');
-
-      // Hide navbar only while actively scrolling down past the hero;
-      // always show it again when scrolling up.
-      const scrollThreshold = 100;
-      let lastScroll = 0;
-      window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-
-        if (currentScroll > scrollThreshold && currentScroll > lastScroll) {
-          navbar.classList.remove('navbar-visible');
-          navbar.classList.add('navbar-hidden');
-        } else {
-          navbar.classList.remove('navbar-hidden');
-          navbar.classList.add('navbar-visible');
-        }
-
-        lastScroll = currentScroll;
-      });
 
       // Mobile menu toggle
       if (toggle && menu) {
@@ -110,47 +66,6 @@
           });
         });
       }
-
-      // Smooth scroll for navbar anchor links
-      document.querySelectorAll('.navbar-menu a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href').substring(1);
-          const target = document.getElementById(targetId);
-          if (target) {
-            const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-
-      // Active link highlighting on scroll
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.navbar-menu a');
-
-      window.addEventListener('scroll', () => {
-        let current = '';
-        const navHeight = document.querySelector('.navbar')?.offsetHeight || 60;
-
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop - navHeight - 100;
-          if (window.pageYOffset >= sectionTop) {
-            current = section.getAttribute('id');
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          const href = link.getAttribute('href').substring(1);
-          if (href === current) {
-            link.classList.add('active');
-          }
-        });
-      });
 
       // Back to Top Button
       const backToTop = document.querySelector('.back-to-top');
@@ -171,22 +86,13 @@
         });
       }
 
-      // Reveal terminal windows as they scroll into view
-      const windows = document.querySelectorAll('.term-window');
-      if ('IntersectionObserver' in window && windows.length) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15 });
-
-        windows.forEach(w => observer.observe(w));
-      } else {
-        windows.forEach(w => w.classList.add('in-view'));
-      }
+      // GA4 click tracking for elements marked with data-track
+      document.addEventListener('click', (e) => {
+        const el = e.target.closest('[data-track]');
+        if (el) {
+          track(el.dataset.track, { label: el.dataset.trackLabel || '' });
+        }
+      });
     });
   </script>
 </body>

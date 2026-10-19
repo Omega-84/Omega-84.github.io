@@ -1,0 +1,49 @@
+<main class="viewer" id="viewer" aria-label="Portfolio">
+  <div class="world" id="world">
+    <svg class="world-bg" aria-hidden="true" viewBox="-2600 -1900 5200 4600" width="5200" height="4600">
+      <defs>
+        <pattern id="dots" width="110" height="110" patternUnits="userSpaceOnUse">
+          <circle cx="55" cy="55" r="2.6" fill="#2c4a41"/>
+        </pattern>
+      </defs>
+      <rect x="-2600" y="-1900" width="5200" height="4600" fill="url(#dots)" opacity="0.5"/>
+      <g fill="none" stroke="#2c4a41" stroke-width="2.5">
+        <circle r="930" opacity="0.8"/>
+        <circle r="1340" opacity="0.55"/>
+        <circle r="1850" opacity="0.4"/>
+      </g>
+    </svg>
+    <svg class="world-links" id="world-links" aria-hidden="true"></svg>
+
+    {% for f in site.data.world %}
+    <article class="frame{% if f.slug == 'home' %} frame--home{% endif %}" id="frame-{{ f.slug }}" data-slug="{{ f.slug }}" data-cx="{{ f.cx }}" data-cy="{{ f.cy }}" data-k="{{ f.k }}" data-w="{{ f.w }}" data-h="{{ f.h }}" data-d="{{ f.d }}"{% if f.peek %} data-peek="{{ f.peek }}"{% endif %}{% if f.align %} data-align="{{ f.align }}"{% endif %}{% if f.side %} data-side="{{ f.side }}"{% endif %}>
+      {% unless f.slug == 'home' %}
+      <button type="button" class="frame-cover" data-cover aria-label="Open {{ f.title }}">
+        <span class="frame-num">{{ f.num }}</span>
+        <span class="frame-title">{{ f.title }}</span>
+        <span class="frame-stat">{{ f.stat }}</span>
+      </button>
+      {% endunless %}
+      <div class="frame-content" tabindex="-1">
+        {% case f.slug %}
+        {% when 'home' %}{% include landing-page.html %}
+        {% when 'experience' %}{% include section-experience.html %}
+        {% when 'projects' %}{% include section-projects.html %}
+        {% when 'skills' %}{% include section-skills.html %}
+        {% when 'certifications' %}{% include section-certifications.html %}
+        {% when 'education' %}{% include section-education.html %}
+        {% when 'contact' %}{% include section-contact.html %}
+        {% endcase %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <div class="hud" id="hud" role="toolbar" aria-label="Zoom navigation">
+    <button type="button" class="hud-btn" id="hud-overview">Overview</button>
+    <button type="button" class="hud-btn" id="hud-prev" aria-label="Previous frame">&larr;</button>
+    <span class="hud-label" id="hud-label" aria-live="polite">Click a circle to zoom in</span>
+    <button type="button" class="hud-btn" id="hud-next" aria-label="Next frame">&rarr;</button>
+    <button type="button" class="hud-btn hud-btn--primary" id="hud-tour">Start the tour</button>
+  </div>
+</main>

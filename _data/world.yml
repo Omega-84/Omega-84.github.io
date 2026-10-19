@@ -1,0 +1,94 @@
+# The canvas. Every frame lives in one shared coordinate space (0,0 = centre of the hub).
+#   cx, cy : centre of the frame in world units
+#   k      : the frame's scale on the canvas (1 = life-size)
+#   w, h   : the frame's native size; its content is laid out at this size
+#   d      : diameter of the circle you see before zooming in (native units, scaled by k)
+#   stat   : the short line shown inside the circle
+#   peek   : how many world units of a circle show at the very bottom of the overview
+#   align  : top = circle label sits near the top (for the circle that rises from below)
+#   side   : -1 = left column, 1 = right column. On wide screens these slide outward to fill the width.
+# The order of this list is the tour order. Move a circle by changing cx / cy, resize it with k.
+# Layout: Experience + Projects on the left, Skills + Certifications on the right,
+# Education centred under the hub, Contact beneath everything.
+
+- slug: home
+  num: "00"
+  title: Home
+  cx: 0
+  cy: 0
+  k: 1.7
+  w: 900
+  h: 900
+  d: 900
+
+- slug: experience
+  num: "01"
+  title: Experience
+  stat: 5 roles
+  cx: -1180
+  cy: -445
+  k: 1.2
+  w: 1000
+  h: 640
+  d: 640
+  side: -1
+
+- slug: projects
+  num: "02"
+  title: Projects
+  stat: 10 shipped, 3 live demos
+  cx: -1180
+  cy: 445
+  k: 1.2
+  w: 1000
+  h: 640
+  d: 640
+  side: -1
+
+- slug: skills
+  num: "03"
+  title: Skills
+  stat: Python, SQL, Fabric
+  cx: 1180
+  cy: -445
+  k: 1.2
+  w: 1000
+  h: 640
+  d: 640
+  side: 1
+
+- slug: certifications
+  num: "04"
+  title: Certifications
+  stat: 2 earned, more coming
+  cx: 1180
+  cy: 445
+  k: 1.2
+  w: 1000
+  h: 640
+  d: 640
+  side: 1
+
+- slug: education
+  num: "05"
+  title: Education
+  stat: MS, GPA 3.8
+  cx: 0
+  cy: 880
+  k: 0.58
+  w: 1000
+  h: 640
+  d: 640
+
+- slug: contact
+  num: "06"
+  title: Contact
+  stat: Let's talk
+  cx: 0
+  cy: 1410
+  k: 0.8
+  w: 1500
+  h: 760
+  d: 760
+  peek: 170
+  align: top
